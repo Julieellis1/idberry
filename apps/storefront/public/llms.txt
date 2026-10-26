@@ -1,0 +1,62 @@
+# IDBERRY Beauty
+
+> IDBERRY Beauty is a Lagos, Nigeria luxury skincare brand founded by Idunnunmi "IDBERRY" Esan, a Nollywood actress, filmmaker and cosmetologist. It makes skincare rituals for melanin-rich skin focused on radiance, even tone and clear-looking complexions, and delivers nationwide across Nigeria and internationally.
+
+Key facts:
+- Name origin: from the founder's hip-hop singing days, when studio crews said her voice was "sweet like berry"; "ID" is short for Idunnunmi.
+- Mission: to help every woman feel confident in her skin through effective, results-driven rituals and honest guidance.
+- Pillars: results you can see; rituals, not random products; made for melanin-rich skin; guidance from a cosmetologist.
+- Language: IDBERRY speaks of radiance, glow, brightening and even tone. It does not promote changing a person's natural complexion.
+- Services: free WhatsApp skin consultations; wholesale pricing and private-label production for entrepreneurs.
+- Store URLs start with a two-letter country code that sets currency (`/ng` = Nigeria, NGN; international countries use USD).
+
+## Key pages
+- [Home](https://idberrybeauty.com/ng)
+- [Shop all products](https://idberrybeauty.com/ng/store)
+- [The Glow Journal (skincare articles)](https://idberrybeauty.com/ng/journal)
+- [Our story: Sweet Like Berry](https://idberrybeauty.com/ng/journal/sweet-like-berry-story-behind-idberry)
+- [Search](https://idberrybeauty.com/ng/search?q={query})
+
+## Collections
+- [Snow White](https://idberrybeauty.com/ng/collections/snow-white): signature radiance ritual for a luminous, even complexion.
+- [Half Cast](https://idberrybeauty.com/ng/collections/half-cast): golden-toned glow ritual for warm, honeyed radiance.
+- [Caramel Glow](https://idberrybeauty.com/ng/collections/caramel-glow): for deep, rich tones that want to stay rich and simply glow.
+- [Royal Customized](https://idberrybeauty.com/ng/collections/royal-customized): the most indulgent ritual, tailored to you.
+- [Targeted Care](https://idberrybeauty.com/ng/collections/targeted-care): focused care for scars, stretch marks, spots, breakouts and dark knuckles.
+- [Little Ones](https://idberrybeauty.com/ng/collections/little-ones): gentle care for kids' skin and hair.
+- [Herbal](https://idberrybeauty.com/ng/collections/herbal): herbal black soap and hair care.
+
+## Shop by concern
+- [Glow & Even Tone](https://idberrybeauty.com/ng/categories/glow-and-even-tone)
+- [Dark Spots & Breakouts](https://idberrybeauty.com/ng/categories/dark-spots-and-breakouts)
+- [Scars & Stretch Marks](https://idberrybeauty.com/ng/categories/scars-and-stretch-marks)
+- [Knees & Knuckles](https://idberrybeauty.com/ng/categories/knees-and-knuckles)
+- [Kids](https://idberrybeauty.com/ng/categories/kids)
+
+## Journal articles
+- [How to Build a Skincare Ritual for Melanin-Rich Skin](https://idberrybeauty.com/ng/journal/how-to-build-a-skincare-ritual-for-melanin-rich-skin)
+- [Brightening vs Lightening: What's the Difference?](https://idberrybeauty.com/ng/journal/brightening-vs-lightening)
+- [Dark Spots and Hyperpigmentation on Dark Skin](https://idberrybeauty.com/ng/journal/dark-spots-hyperpigmentation-dark-skin)
+- [Lagos Skincare: Humid Rainy Season vs Harmattan](https://idberrybeauty.com/ng/journal/lagos-heat-harmattan-skincare)
+- [Sweet Like Berry: The Story Behind IDBERRY](https://idberrybeauty.com/ng/journal/sweet-like-berry-story-behind-idberry)
+- Full text of every article: https://idberrybeauty.com/llms-full.txt
+- RSS feed: https://idberrybeauty.com/journal/rss.xml
+
+## Policies
+- [Shipping information](https://idberrybeauty.com/ng/shipping)
+- [Returns: 7-day replacement warranty](https://idberrybeauty.com/ng/returns): report wrong or defective items within 48 hours; items must be unopened and in original packaging.
+- [Terms of service](https://idberrybeauty.com/ng/terms)
+- [Privacy policy](https://idberrybeauty.com/ng/privacy)
+
+## Contact
+- Studio: 2 Prince Durotoye Street, beside Vitafoam, Iju Road, Agege, Lagos 100216, Nigeria
+- Phone / WhatsApp: +234 703 328 7766 (https://wa.me/2347033287766)
+- Email: info@idberrybeauty.com
+- Hours: Monday–Friday 09:00–19:00, Saturday 10:00–18:00 (WAT), Sunday closed
+- Instagram: https://www.instagram.com/idberry_beauty_products/
+- [Contact page](https://idberrybeauty.com/ng/contact)
+
+## For agents
+- Append `.md` to any product URL (or send `Accept: text/markdown`) for a Markdown version with variant IDs, prices and stock.
+- Product pages post `variant_id` and `quantity` to `/{countryCode}/cart/add`; checkout link format: `https://idberrybeauty.com/buy/{variant_id}:{quantity}`.
+- [Sitemap](https://idberrybeauty.com/sitemap.xml) · [UCP profile](https://idberrybeauty.com/.well-known/ucp) · UCP MCP endpoint: https://idberrybeauty.com/ucp/mcp · UCP REST: https://idberrybeauty.com/ucp/v1

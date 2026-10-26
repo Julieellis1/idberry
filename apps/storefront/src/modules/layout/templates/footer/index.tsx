@@ -1,0 +1,241 @@
+import { listCategories } from "@lib/data/categories";
+import { listCollections } from "@lib/data/collections";
+import { Text, clx } from "@modules/common/components/ui";
+
+import LocalizedClientLink from "@modules/common/components/localized-client-link";
+import { BRAND, whatsappLink } from "@lib/idberry";
+
+export default async function Footer() {
+  const [{ collections }, productCategories] = await Promise.all([
+    listCollections({ fields: "id,handle,title" }),
+    listCategories({
+      fields:
+        "id,name,handle,parent_category_id,category_children.id,category_children.name,category_children.handle",
+    }),
+  ]);
+
+  return (
+    <footer className="border-t border-blush bg-ivory w-full">
+      <div className="content-container flex flex-col w-full">
+        <div className="flex flex-col gap-y-10 small:flex-row items-start justify-between py-20 gap-x-16">
+          <div className="max-w-sm flex flex-col gap-4">
+            <LocalizedClientLink
+              href="/"
+              className="font-serif text-3xl tracking-[0.25em] text-berry uppercase"
+            >
+              IDBERRY
+            </LocalizedClientLink>
+            <p className="font-serif italic text-lg text-ink/80">
+              {BRAND.tagline}
+            </p>
+            <address className="not-italic text-sm text-ink/70 flex flex-col gap-1">
+              <span>{BRAND.address}</span>
+              <a className="hover:text-berry" href={BRAND.phoneHref}>
+                {BRAND.phoneDisplay}
+              </a>
+              <a className="hover:text-berry" href={`mailto:${BRAND.email}`}>
+                {BRAND.email}
+              </a>
+              <span>{BRAND.hours}</span>
+            </address>
+            <div className="flex gap-4 text-sm">
+              <a
+                className="text-berry hover:text-gold"
+                href={BRAND.instagramUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Instagram {BRAND.instagramHandle}
+              </a>
+              <a
+                className="text-berry hover:text-gold"
+                href={whatsappLink()}
+                target="_blank"
+                rel="noreferrer"
+              >
+                WhatsApp
+              </a>
+            </div>
+          </div>
+          <div className="text-small-regular gap-10 md:gap-x-16 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4">
+            {productCategories && productCategories?.length > 0 && (
+              <div className="flex flex-col gap-y-2">
+                <span className="txt-small-plus txt-ui-fg-base">
+                  Categories
+                </span>
+                <ul
+                  className="grid grid-cols-1 gap-2"
+                  data-testid="footer-categories"
+                >
+                  {productCategories?.slice(0, 6).map((c) => {
+                    if (c.parent_category_id) {
+                      return;
+                    }
+
+                    const children =
+                      c.category_children?.map((child) => ({
+                        name: child.name,
+                        handle: child.handle,
+                        id: child.id,
+                      })) || null;
+
+                    return (
+                      <li
+                        className="flex flex-col gap-2 text-ui-fg-subtle txt-small"
+                        key={c.id}
+                      >
+                        <LocalizedClientLink
+                          className={clx(
+                            "hover:text-ui-fg-base",
+                            children && "txt-small-plus"
+                          )}
+                          href={`/categories/${c.handle}`}
+                          data-testid="category-link"
+                        >
+                          {c.name}
+                        </LocalizedClientLink>
+                        {children && (
+                          <ul className="grid grid-cols-1 ml-3 gap-2">
+                            {children &&
+                              children.map((child) => (
+                                <li key={child.id}>
+                                  <LocalizedClientLink
+                                    className="hover:text-ui-fg-base"
+                                    href={`/categories/${child.handle}`}
+                                    data-testid="category-link"
+                                  >
+                                    {child.name}
+                                  </LocalizedClientLink>
+                                </li>
+                              ))}
+                          </ul>
+                        )}
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            )}
+            {collections && collections.length > 0 && (
+              <div className="flex flex-col gap-y-2">
+                <span className="txt-small-plus txt-ui-fg-base">
+                  Collections
+                </span>
+                <ul
+                  className={clx(
+                    "grid grid-cols-1 gap-2 text-ui-fg-subtle txt-small",
+                    {
+                      "grid-cols-2": (collections?.length || 0) > 3,
+                    }
+                  )}
+                >
+                  {collections?.slice(0, 6).map((c) => (
+                    <li key={c.id}>
+                      <LocalizedClientLink
+                        className="hover:text-ui-fg-base"
+                        href={`/collections/${c.handle}`}
+                      >
+                        {c.title}
+                      </LocalizedClientLink>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+            <div className="flex flex-col gap-y-2">
+              <span className="txt-small-plus txt-ui-fg-base">
+                Customer service
+              </span>
+              <ul className="grid grid-cols-1 gap-y-2 text-ui-fg-subtle txt-small">
+                <li>
+                  <LocalizedClientLink
+                    className="hover:text-ui-fg-base"
+                    href="/shipping"
+                  >
+                    Shipping information
+                  </LocalizedClientLink>
+                </li>
+                <li>
+                  <LocalizedClientLink
+                    className="hover:text-ui-fg-base"
+                    href="/returns"
+                  >
+                    Return policy
+                  </LocalizedClientLink>
+                </li>
+                <li>
+                  <LocalizedClientLink
+                    className="hover:text-ui-fg-base"
+                    href="/terms"
+                  >
+                    Terms of service
+                  </LocalizedClientLink>
+                </li>
+                <li>
+                  <LocalizedClientLink
+                    className="hover:text-ui-fg-base"
+                    href="/privacy"
+                  >
+                    Privacy policy
+                  </LocalizedClientLink>
+                </li>
+                <li>
+                  <LocalizedClientLink
+                    className="hover:text-ui-fg-base"
+                    href="/contact"
+                  >
+                    Contact
+                  </LocalizedClientLink>
+                </li>
+                <li>
+                  <LocalizedClientLink
+                    className="hover:text-ui-fg-base"
+                    href="/search"
+                  >
+                    Search
+                  </LocalizedClientLink>
+                </li>
+              </ul>
+            </div>
+            <div className="flex flex-col gap-y-2">
+              <span className="txt-small-plus txt-ui-fg-base">IDBERRY</span>
+              <ul className="grid grid-cols-1 gap-y-2 text-ui-fg-subtle txt-small">
+                <li>
+                  <LocalizedClientLink className="hover:text-ui-fg-base" href="/#our-story">
+                    Our story
+                  </LocalizedClientLink>
+                </li>
+                <li>
+                  <LocalizedClientLink className="hover:text-ui-fg-base" href="/journal">
+                    The Glow Journal
+                  </LocalizedClientLink>
+                </li>
+                <li>
+                  <a
+                    className="hover:text-ui-fg-base"
+                    href={whatsappLink("Hello IDBERRY, I'm interested in wholesale / private label.")}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Wholesale &amp; private label
+                  </a>
+                </li>
+                <li>
+                  <LocalizedClientLink className="hover:text-ui-fg-base" href="/#faq">
+                    FAQ
+                  </LocalizedClientLink>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div className="flex w-full mb-16 pt-6 border-t border-blush justify-between text-ui-fg-muted">
+          <Text className="txt-compact-small">
+            © {new Date().getFullYear()} IDBERRY Beauty. All rights reserved.
+          </Text>
+          <Text className="txt-compact-small">Made in Lagos</Text>
+        </div>
+      </div>
+    </footer>
+  );
+}
