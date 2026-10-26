@@ -32,7 +32,13 @@ COPY apps/storefront/package.json apps/storefront/package.json
 RUN pnpm install --frozen-lockfile
 
 FROM base AS builder
-COPY --from=deps /app/node_modules ./node_modules
+# Copy the WHOLE deps stage, not just root node_modules. This is a pnpm
+# workspace: apps/storefront/node_modules holds the next binary as a
+# symlink into root node_modules/.pnpm. Copying only root node_modules
+# left the app with no next binary, and the Dokploy build failed with
+# "next: not found". The COPY . . below is filtered by .dockerignore,
+# so it does not overwrite node_modules.
+COPY --from=deps /app /app
 COPY . .
 ARG NEXT_PUBLIC_MEDUSA_BACKEND_URL
 ARG NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY
@@ -48,14 +54,11 @@ FROM base AS runner
 ENV NODE_ENV=production
 ENV PORT=8000
 ENV HOSTNAME=0.0.0.0
-# Copy the whole workspace, not just .next: the Journal reads MDX files
-# from apps/storefront/content at render time, and next.config.js loads
-# apps/storefront/src/data/legacy-redirects.json at startup. A standalone
-# output would need those files copied explicitly; this staging image
-# trades size for correctness.
-COPY --from=builder /app/node_modules ./node_modules
-COPY --from=builder /app/apps ./apps
-COPY --from=builder /app/package.json ./package.json
-COPY --from=builder /app/pnpm-workspace.yaml ./pnpm-workspace.yaml
+# Copy the whole builder workspace, not just .next: the Journal reads MDX
+# files from apps/storefront/content at render time, next.config.js loads
+# apps/storefront/src/data/legacy-redirects.json at startup, and the
+# pnpm workspace binaries are symlinks that only work with the full
+# node_modules tree present. This staging image trades size for correctness.
+COPY --from=builder /app /app
 EXPOSE 8000
 CMD ["sh", "-c", "cd apps/storefront && pnpm start"]

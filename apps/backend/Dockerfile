@@ -28,17 +28,22 @@ COPY apps/storefront/package.json apps/storefront/package.json
 RUN pnpm install --frozen-lockfile
 
 FROM base AS builder
-COPY --from=deps /app/node_modules ./node_modules
+# Copy the WHOLE deps stage, not just root node_modules. This is a pnpm
+# workspace: apps/backend/node_modules holds the medusa binary as a
+# symlink into root node_modules/.pnpm. Copying only root node_modules
+# left the app with no medusa binary, and the Dokploy build failed with
+# "medusa: not found". The COPY . . below is filtered by .dockerignore,
+# so it does not overwrite node_modules.
+COPY --from=deps /app /app
 COPY . .
 RUN pnpm --filter @dtc/backend build
 
 FROM base AS runner
 ENV NODE_ENV=production
 ENV PORT=9000
-COPY --from=builder /app/node_modules ./node_modules
-COPY --from=builder /app/apps ./apps
-COPY --from=builder /app/package.json ./package.json
-COPY --from=builder /app/pnpm-workspace.yaml ./pnpm-workspace.yaml
+# Copy the whole builder workspace for the same symlink reason: the
+# runner must keep apps/backend/node_modules alongside root node_modules.
+COPY --from=builder /app /app
 EXPOSE 9000
 # medusa start serves the API on 9000 and the admin dashboard on /app.
 # db:migrate is idempotent after the first run; on the first run it seeds
