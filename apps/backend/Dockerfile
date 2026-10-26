@@ -37,6 +37,10 @@ FROM base AS builder
 COPY --from=deps /app /app
 COPY . .
 RUN pnpm --filter @dtc/backend build
+# Fail the build here, not at runtime in a restart loop, if the admin
+# dashboard was not built. Medusa's production build puts it in
+# .medusa/server/public/admin.
+RUN test -f apps/backend/.medusa/server/public/admin/index.html
 
 FROM base AS runner
 ENV NODE_ENV=production
@@ -45,7 +49,12 @@ ENV PORT=9000
 # runner must keep apps/backend/node_modules alongside root node_modules.
 COPY --from=builder /app /app
 EXPOSE 9000
-# medusa start serves the API on 9000 and the admin dashboard on /app.
-# db:migrate is idempotent after the first run; on the first run it seeds
-# the IDBERRY store. See README-IDBERRY.md section 3.
-CMD ["sh", "-c", "cd apps/backend && npx medusa db:migrate && npx medusa start"]
+# Start from .medusa/server, not from apps/backend. Medusa's own docs say
+# the production server must be started from .medusa/server, and starting
+# it from the backend root is exactly what produces "Could not find
+# index.html in the admin build directory" at runtime, even though the
+# build itself succeeded. Dependencies resolve from the parent
+# node_modules directories, which this image keeps in full.
+# db:migrate runs first from apps/backend (where it already worked: it
+# completed migrations and the IDBERRY seed); it is idempotent after that.
+CMD ["sh", "-c", "cd apps/backend && npx medusa db:migrate && cd .medusa/server && npx medusa start"]
