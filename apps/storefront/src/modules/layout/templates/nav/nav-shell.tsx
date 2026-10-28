@@ -14,15 +14,15 @@ import LocalizedClientLink from "@modules/common/components/localized-client-lin
  * ivory once the user scrolls past it. Every other page keeps the normal
  * sticky ivory header, so white text never lands on a light page.
  *
- * There is a single menu: the slide-in Menu on the right. The wordmark
- * sits on the left, and Search, Cart and Menu sit on the right.
+ * Navigation is the horizontal menu on the right. There is no slide-in
+ * menu: the wordmark sits in the middle, kept centred by an empty flex
+ * spacer on the left, with Search, the horizontal links, and Cart on
+ * the right.
  */
 export default function NavShell({
-  sideMenu,
   search,
   cart,
 }: {
-  sideMenu: ReactNode
   search: ReactNode
   cart: ReactNode
 }) {
@@ -81,7 +81,9 @@ export default function NavShell({
             overlay ? "text-ivory" : "text-ui-fg-subtle"
           }`}
         >
-          <div className="flex-1 basis-0 h-full flex items-center">
+          <div className="flex-1 basis-0 h-full" aria-hidden="true" />
+
+          <div className="flex items-center h-full">
             <LocalizedClientLink
               href="/"
               className={`font-serif text-2xl small:text-3xl tracking-[0.25em] uppercase ${
@@ -97,8 +99,36 @@ export default function NavShell({
 
           <div className="flex items-center gap-x-6 h-full flex-1 basis-0 justify-end">
             {search}
+            <div className="hidden small:flex items-center gap-x-6 h-full">
+              <LocalizedClientLink
+                className={overlay ? "hover:text-gold" : "hover:text-berry"}
+                href="/store"
+              >
+                Shop
+              </LocalizedClientLink>
+              <LocalizedClientLink
+                className={overlay ? "hover:text-gold" : "hover:text-berry"}
+                href="/collections/snow-white"
+              >
+                Collections
+              </LocalizedClientLink>
+              <LocalizedClientLink
+                className={overlay ? "hover:text-gold" : "hover:text-berry"}
+                href="/journal"
+              >
+                Journal
+              </LocalizedClientLink>
+              <LocalizedClientLink
+                className={
+                  overlay ? "hover:text-gold" : "hover:text-ui-fg-base"
+                }
+                href="/account"
+                data-testid="nav-account-link"
+              >
+                Account
+              </LocalizedClientLink>
+            </div>
             {cart}
-            <div className="h-full">{sideMenu}</div>
           </div>
         </nav>
       </header>

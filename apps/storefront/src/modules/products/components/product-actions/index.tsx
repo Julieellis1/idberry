@@ -200,7 +200,7 @@ export default function ProductActions({
               !isValidVariant
             }
             variant="primary"
-            className="w-full h-10"
+            className="w-full h-12 rounded-full text-sm uppercase tracking-widest"
             isLoading={isAdding}
             data-testid="add-product-button"
           >
