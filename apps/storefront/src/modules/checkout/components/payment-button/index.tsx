@@ -59,7 +59,14 @@ const PaymentButton: React.FC<PaymentButtonProps> = ({
         <ManualTestPaymentButton notReady={notReady} data-testid={dataTestId} />
       )
     default:
-      return <Button disabled>Select a payment method</Button>
+      return (
+        <Button
+          disabled
+          className="h-12 rounded-full px-8 text-sm uppercase tracking-widest"
+        >
+          Select a payment method
+        </Button>
+      )
   }
 }
 
@@ -162,6 +169,7 @@ const StripePaymentButton = ({
         onClick={handlePayment}
         size="large"
         isLoading={submitting}
+        className="h-12 rounded-full px-8 text-sm uppercase tracking-widest"
         data-testid={dataTestId}
       >
         Place order
@@ -213,6 +221,7 @@ const PaystackPaymentButton = ({
         isLoading={submitting}
         onClick={handlePayment}
         size="large"
+        className="h-12 rounded-full px-8 text-sm uppercase tracking-widest"
         data-testid={dataTestId}
       >
         Pay securely with Paystack
@@ -252,6 +261,7 @@ const ManualTestPaymentButton = ({ notReady }: { notReady: boolean }) => {
         isLoading={submitting}
         onClick={handlePayment}
         size="large"
+        className="h-12 rounded-full px-8 text-sm uppercase tracking-widest"
         data-testid="submit-order-button"
       >
         Place order

@@ -62,7 +62,22 @@
 
 @layer components {
   .content-container {
-    @apply max-w-[1440px] w-full mx-auto px-6;
+    @apply max-w-[1440px] w-full mx-auto px-6 small:px-12 large:px-20;
+  }
+
+  /* Berry focus ring for checkout and promotion-code fields. The shared
+     Input components are untouched; this scoped rule only adds the
+     rounded corners and focus ring to fields inside .idberry-field. */
+  .idberry-field input,
+  .idberry-field select {
+    border-radius: 0.75rem;
+  }
+
+  .idberry-field input:focus,
+  .idberry-field select:focus {
+    border-color: #5b1a3a;
+    box-shadow: 0 0 0 3px rgba(91, 26, 58, 0.18);
+    outline: none;
   }
 
   .contrast-btn {

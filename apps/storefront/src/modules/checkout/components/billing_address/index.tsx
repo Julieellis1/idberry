@@ -29,7 +29,7 @@ const BillingAddress = ({ cart }: { cart: HttpTypes.StoreCart | null }) => {
 
   return (
     <>
-      <div className="grid grid-cols-2 gap-4">
+      <div className="idberry-field grid grid-cols-1 small:grid-cols-2 gap-4 small:gap-5">
         <Input
           label="First name"
           name="billing_address.first_name"
@@ -88,6 +88,7 @@ const BillingAddress = ({ cart }: { cart: HttpTypes.StoreCart | null }) => {
           value={formData["billing_address.country_code"]}
           onChange={handleChange}
           required
+          className="rounded-xl"
           data-testid="billing-country-select"
         />
         <Input

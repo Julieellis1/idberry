@@ -97,7 +97,7 @@ const ShippingAddress = ({
   return (
     <>
       {customer && (addressesInRegion?.length || 0) > 0 && (
-        <Container className="mb-6 flex flex-col gap-y-4 p-5">
+        <Container className="mb-6 flex flex-col gap-y-4 rounded-2xl border border-blush p-5 shadow-sm">
           <p className="text-small-regular">
             {`Hi ${customer.first_name}, do you want to use one of your saved addresses?`}
           </p>
@@ -112,7 +112,7 @@ const ShippingAddress = ({
           />
         </Container>
       )}
-      <div className="grid grid-cols-2 gap-4">
+      <div className="idberry-field grid grid-cols-1 small:grid-cols-2 gap-4 small:gap-5">
         <Input
           label="First name"
           name="shipping_address.first_name"
@@ -173,6 +173,7 @@ const ShippingAddress = ({
           value={formData["shipping_address.country_code"]}
           onChange={handleChange}
           required
+          className="rounded-xl"
           data-testid="shipping-country-select"
         />
         <Input
@@ -193,7 +194,7 @@ const ShippingAddress = ({
           data-testid="billing-address-checkbox"
         />
       </div>
-      <div className="grid grid-cols-2 gap-4 mb-4">
+      <div className="idberry-field grid grid-cols-1 small:grid-cols-2 gap-4 small:gap-5 mb-4">
         <Input
           label="Email"
           name="email"

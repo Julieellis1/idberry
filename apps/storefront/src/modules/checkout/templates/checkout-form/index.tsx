@@ -5,6 +5,7 @@ import Addresses from "@modules/checkout/components/addresses"
 import Payment from "@modules/checkout/components/payment"
 import Review from "@modules/checkout/components/review"
 import Shipping from "@modules/checkout/components/shipping"
+import StepIndicator from "@modules/checkout/components/step-indicator"
 
 export default async function CheckoutForm({
   cart,
@@ -25,7 +26,11 @@ export default async function CheckoutForm({
   }
 
   return (
-    <div className="w-full grid grid-cols-1 gap-y-8">
+    <div className="w-full grid grid-cols-1 gap-y-6 small:gap-y-8">
+      <div className="rounded-3xl border border-blush bg-white px-6 py-5 small:px-8 shadow-sm">
+        <StepIndicator />
+      </div>
+
       <Addresses cart={cart} customer={customer} />
 
       <Shipping cart={cart} availableShippingMethods={shippingMethods} />

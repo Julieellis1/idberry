@@ -45,8 +45,11 @@ const Item = ({ item, type = "full", currencyCode }: ItemProps) => {
   const maxQuantity = item.variant?.manage_inventory ? 10 : maxQtyFromInventory
 
   return (
-    <Table.Row className="w-full" data-testid="product-row">
-      <Table.Cell className="!pl-0 p-4 w-24">
+    <Table.Row
+      className="w-full border-b border-blush/60 last:border-b-0 hover:bg-ivory/50"
+      data-testid="product-row"
+    >
+      <Table.Cell className="!pl-0 p-4 py-5 w-24">
         <LocalizedClientLink
           href={`/products/${item.product_handle}`}
           className={clx("flex", {
@@ -58,6 +61,7 @@ const Item = ({ item, type = "full", currencyCode }: ItemProps) => {
             thumbnail={item.thumbnail}
             images={item.variant?.product?.images}
             size="square"
+            className="rounded-3xl border border-blush shadow-sm"
           />
         </LocalizedClientLink>
       </Table.Cell>
@@ -74,12 +78,16 @@ const Item = ({ item, type = "full", currencyCode }: ItemProps) => {
 
       {type === "full" && (
         <Table.Cell>
-          <div className="flex gap-2 items-center w-28">
-            <DeleteButton id={item.id} data-testid="product-delete-button" />
+          <div className="flex gap-2 items-center w-28 rounded-full border border-blush bg-ivory px-2 py-1 shadow-sm">
+            <DeleteButton
+              id={item.id}
+              data-testid="product-delete-button"
+              className="rounded-full hover:bg-blush/50 px-1 py-1"
+            />
             <CartItemSelect
               value={item.quantity}
               onChange={(value) => changeQuantity(parseInt(value.target.value))}
-              className="w-14 h-10 p-4"
+              className="w-16 h-10 rounded-full border-blush bg-white shadow-sm"
               data-testid="product-select-button"
             >
               {/* TODO: Update this with the v2 way of managing inventory */}
