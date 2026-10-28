@@ -53,6 +53,17 @@ const Hero = () => {
   return (
     <>
       <section className="relative w-full min-h-[100svh] overflow-hidden bg-black text-ivory">
+        {/* Poster shows immediately while the video loads, so the hero
+            is never a black screen. The video fades in over it. */}
+        <Image
+          src={HERO.poster}
+          alt=""
+          aria-hidden="true"
+          fill
+          priority
+          sizes="100vw"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
         <HeroVideo />
         <div
           aria-hidden="true"
