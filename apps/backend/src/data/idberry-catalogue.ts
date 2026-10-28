@@ -25,7 +25,7 @@ export const IDBERRY_CATALOGUE: IdberryCatalogueItem[] = [
       "Glow & Even Tone"
     ],
     "type": "Set",
-    "image": "https://idberrybeauty.com/wp-content/uploads/2024/10/Neutral-Elegant-Skin-Care-Cosmetic-Product-Podium-Facebook-Post_20240916_125923_0000-1.png",
+    "image": "/images/products/half-cast-golden-glow-facial-package.webp",
     "source_url": "https://idberrybeauty.com/product/half-cast-smooth-fair-in-7days-10x-extra-whitening-facial-package-copy/"
   },
   {
@@ -37,7 +37,7 @@ export const IDBERRY_CATALOGUE: IdberryCatalogueItem[] = [
       "Glow & Even Tone"
     ],
     "type": "Soap",
-    "image": "https://idberrybeauty.com/wp-content/uploads/2021/03/4.jpg",
+    "image": "/images/products/half-cast-golden-glow-body-soap-1kg.webp",
     "source_url": "https://idberrybeauty.com/product/half-cast-smooth-fair-in-7days-10x-extra-whitening-body-soap-1000g/"
   },
   {
@@ -49,7 +49,7 @@ export const IDBERRY_CATALOGUE: IdberryCatalogueItem[] = [
       "Glow & Even Tone"
     ],
     "type": "Cream",
-    "image": "https://idberrybeauty.com/wp-content/uploads/2024/02/IMG_5915-Edit.jpg",
+    "image": "/images/products/snow-white-plus-radiance-facial-cream-100g.webp",
     "source_url": "https://idberrybeauty.com/product/exclusive-snow-white-plus-20x-extra-whitening-facial-cream-100g/"
   },
   {
@@ -61,7 +61,7 @@ export const IDBERRY_CATALOGUE: IdberryCatalogueItem[] = [
       "Glow & Even Tone"
     ],
     "type": "Cream",
-    "image": "https://idberrybeauty.com/wp-content/uploads/2024/02/IMG_9904-Edit.jpg",
+    "image": "/images/products/snow-white-plus-radiance-facial-cream-50g.webp",
     "source_url": "https://idberrybeauty.com/product/exclusive-snow-white-plus-20x-extra-whitening-facial-cream-50g/"
   },
   {
@@ -73,7 +73,7 @@ export const IDBERRY_CATALOGUE: IdberryCatalogueItem[] = [
       "Glow & Even Tone"
     ],
     "type": "Soap",
-    "image": "https://idberrybeauty.com/wp-content/uploads/2024/02/IMG_9918.jpg",
+    "image": "/images/products/snow-white-plus-radiance-face-soap.webp",
     "source_url": "https://idberrybeauty.com/product/exclusive-snow-white-plus-20x-extra-whitening-face-soap/"
   },
   {
@@ -85,7 +85,7 @@ export const IDBERRY_CATALOGUE: IdberryCatalogueItem[] = [
       "Glow & Even Tone"
     ],
     "type": "Scrub",
-    "image": "https://idberrybeauty.com/wp-content/uploads/2024/02/IMG_2443.jpg",
+    "image": "/images/products/snow-white-plus-radiance-scrub-250g.webp",
     "source_url": "https://idberrybeauty.com/product/exclusive-snow-white-plus-20x-extra-whitening-scrub-250g/"
   },
   {
@@ -97,7 +97,7 @@ export const IDBERRY_CATALOGUE: IdberryCatalogueItem[] = [
       "Glow & Even Tone"
     ],
     "type": "Scrub",
-    "image": "https://idberrybeauty.com/wp-content/uploads/2024/02/IMG_2443.jpg",
+    "image": "/images/products/snow-white-plus-radiance-scrub-250g.webp",
     "source_url": "https://idberrybeauty.com/product/exclusive-snow-white-plus-20x-extra-whitening-scrub-500g/"
   },
   {
@@ -109,7 +109,7 @@ export const IDBERRY_CATALOGUE: IdberryCatalogueItem[] = [
       "Glow & Even Tone"
     ],
     "type": "Soap",
-    "image": "https://idberrybeauty.com/wp-content/uploads/2021/03/IMG_5911-Edit.jpg",
+    "image": "/images/products/snow-white-plus-radiance-soap-1kg.webp",
     "source_url": "https://idberrybeauty.com/product/exclusive-snow-white-plus-20x-extra-whitening-soap-1000g/"
   },
   {
@@ -121,7 +121,7 @@ export const IDBERRY_CATALOGUE: IdberryCatalogueItem[] = [
       "Glow & Even Tone"
     ],
     "type": "Soap",
-    "image": "https://idberrybeauty.com/wp-content/uploads/2024/02/IMG_2447.jpg",
+    "image": "/images/products/snow-white-plus-radiance-soap-250g.webp",
     "source_url": "https://idberrybeauty.com/product/exclusive-snow-white-plus-20x-extra-whitening-soap-250g/"
   },
   {
@@ -133,7 +133,7 @@ export const IDBERRY_CATALOGUE: IdberryCatalogueItem[] = [
       "Glow & Even Tone"
     ],
     "type": "Soap",
-    "image": "https://idberrybeauty.com/wp-content/uploads/2024/02/IMG_9807.jpg",
+    "image": "/images/products/snow-white-plus-radiance-soap-500g.webp",
     "source_url": "https://idberrybeauty.com/product/exclusive-snow-white-plus-20x-extra-whitening-soap-500g/"
   },
   {
@@ -145,7 +145,7 @@ export const IDBERRY_CATALOGUE: IdberryCatalogueItem[] = [
       "Glow & Even Tone"
     ],
     "type": "Set",
-    "image": "https://idberrybeauty.com/wp-content/uploads/2024/02/IMG_2480.jpg",
+    "image": "/images/products/snow-white-radiance-full-set-plus-lurlu-hitam-scrub.webp",
     "source_url": "https://idberrybeauty.com/product/exclusive-snow-white-10x-extra-whitening-full-set-lurlu-hitam-scrub/"
   },
   {
@@ -157,7 +157,7 @@ export const IDBERRY_CATALOGUE: IdberryCatalogueItem[] = [
       "Glow & Even Tone"
     ],
     "type": "Set",
-    "image": "https://idberrybeauty.com/wp-content/uploads/2024/02/IMG_2482-Edit-1-scaled.jpg",
+    "image": "/images/products/snow-white-plus-radiance-full-package-plus-lurlu-hitam-scrub.webp",
     "source_url": "https://idberrybeauty.com/product/exclusive-snow-white-plus-20x-extra-whitening-full-package-lurlu-hitam-scrub/"
   },
   {
@@ -169,7 +169,7 @@ export const IDBERRY_CATALOGUE: IdberryCatalogueItem[] = [
       "Glow & Even Tone"
     ],
     "type": "Scrub",
-    "image": "https://idberrybeauty.com/wp-content/uploads/2023/10/IMG_2484.jpg",
+    "image": "/images/products/lurlu-hitam-radiance-scrub.webp",
     "source_url": "https://idberrybeauty.com/product/lurlu-hitam-whitening-scrub/"
   },
   {
@@ -181,7 +181,7 @@ export const IDBERRY_CATALOGUE: IdberryCatalogueItem[] = [
       "Glow & Even Tone"
     ],
     "type": "Soap",
-    "image": "https://idberrybeauty.com/wp-content/uploads/2022/11/IMG_9829-Edit.jpg",
+    "image": "/images/products/snow-white-radiance-black-soap-250g.webp",
     "source_url": "https://idberrybeauty.com/product/exclusive-snow-white-10x-extra-whitening-black-soap-250g/"
   },
   {
@@ -193,7 +193,7 @@ export const IDBERRY_CATALOGUE: IdberryCatalogueItem[] = [
       "Glow & Even Tone"
     ],
     "type": "Soap",
-    "image": "https://idberrybeauty.com/wp-content/uploads/2022/11/IMG_2429.jpg",
+    "image": "/images/products/snow-white-radiance-black-soap-500g.webp",
     "source_url": "https://idberrybeauty.com/product/exclusive-snow-white-10x-extra-whitening-black-soap-500g/"
   },
   {
@@ -205,7 +205,7 @@ export const IDBERRY_CATALOGUE: IdberryCatalogueItem[] = [
       "Glow & Even Tone"
     ],
     "type": "Oil",
-    "image": "https://idberrybeauty.com/wp-content/uploads/2022/07/IMG_9803-Edit.jpg",
+    "image": "/images/products/snow-white-plus-radiance-oil.webp",
     "source_url": "https://idberrybeauty.com/product/exclusive-snow-white-plus-20x-extra-whitening-oil/"
   },
   {
@@ -217,7 +217,7 @@ export const IDBERRY_CATALOGUE: IdberryCatalogueItem[] = [
       "Glow & Even Tone"
     ],
     "type": "Cleanser & Bath",
-    "image": "https://idberrybeauty.com/wp-content/uploads/2022/07/IMG_9806-Edit.jpg",
+    "image": "/images/products/snow-white-plus-radiance-facial-cleanser.webp",
     "source_url": "https://idberrybeauty.com/product/exclusive-snow-white-plus-20x-extra-whitening-facial-cleanser/"
   },
   {
@@ -229,7 +229,7 @@ export const IDBERRY_CATALOGUE: IdberryCatalogueItem[] = [
       "Kids"
     ],
     "type": "Lotion",
-    "image": "https://idberrybeauty.com/wp-content/uploads/2022/07/png_20220713_183254_0000-1.png",
+    "image": "/images/products/flawless-brightening-kids-lotion-and-shower-bath.webp",
     "source_url": "https://idberrybeauty.com/product/flawless-brightening-kids-lotion-shower-bath/"
   },
   {
@@ -241,7 +241,7 @@ export const IDBERRY_CATALOGUE: IdberryCatalogueItem[] = [
       "Kids"
     ],
     "type": "Cleanser & Bath",
-    "image": "https://idberrybeauty.com/wp-content/uploads/2022/07/png_20220713_184712_0000.png",
+    "image": "/images/products/flawless-brightening-kids-shower-bath.webp",
     "source_url": "https://idberrybeauty.com/product/flawless-brightening-kids-shower-bath/"
   },
   {
@@ -253,7 +253,7 @@ export const IDBERRY_CATALOGUE: IdberryCatalogueItem[] = [
       "Kids"
     ],
     "type": "Oil",
-    "image": "https://idberrybeauty.com/wp-content/uploads/2022/07/png_20220713_184501_0000.png",
+    "image": "/images/products/kids-skin-and-hair-multi-purpose-oil.webp",
     "source_url": "https://idberrybeauty.com/product/kids-skin-hair-multi-purpose-oil/"
   },
   {
@@ -265,7 +265,7 @@ export const IDBERRY_CATALOGUE: IdberryCatalogueItem[] = [
       "Kids"
     ],
     "type": "Set",
-    "image": "https://idberrybeauty.com/wp-content/uploads/2022/07/Aesthetic-Three-Best-Seller-Product-with-Podium-Instagram-Post_20241001_185852_0000-1.png",
+    "image": "/images/products/flawless-brightening-kids-set.webp",
     "source_url": "https://idberrybeauty.com/product/flawless-brightening-kids-set/"
   },
   {
@@ -277,7 +277,7 @@ export const IDBERRY_CATALOGUE: IdberryCatalogueItem[] = [
       "Kids"
     ],
     "type": "Lotion",
-    "image": "https://idberrybeauty.com/wp-content/uploads/2022/07/Pink-Aesthetic-Podium-Feminine-Perfume-Instagram-Story-1080-x-1350-px_20241001_192654_0000-scaled.png",
+    "image": "/images/products/flawless-brightening-kids-lotion.webp",
     "source_url": "https://idberrybeauty.com/product/flawless-brightening-kids-lotion/"
   },
   {
@@ -289,7 +289,7 @@ export const IDBERRY_CATALOGUE: IdberryCatalogueItem[] = [
       "Glow & Even Tone"
     ],
     "type": "Soap",
-    "image": "https://idberrybeauty.com/wp-content/uploads/2022/07/IMG_2472.jpg",
+    "image": "/images/products/half-cast-golden-glow-body-soap-250g.webp",
     "source_url": "https://idberrybeauty.com/product/10x-half-cast-smooth-fair-in-7days-body-soap-250g/"
   },
   {
@@ -301,7 +301,7 @@ export const IDBERRY_CATALOGUE: IdberryCatalogueItem[] = [
       "Glow & Even Tone"
     ],
     "type": "Soap",
-    "image": "https://idberrybeauty.com/wp-content/uploads/2022/07/IMG_2462-Edit.jpg",
+    "image": "/images/products/half-cast-golden-glow-body-soap-500g.webp",
     "source_url": "https://idberrybeauty.com/product/10x-half-cast-smooth-fair-in-7days-body-soap-500g/"
   },
   {
@@ -313,7 +313,7 @@ export const IDBERRY_CATALOGUE: IdberryCatalogueItem[] = [
       "Glow & Even Tone"
     ],
     "type": "Set",
-    "image": "https://idberrybeauty.com/wp-content/uploads/2022/07/IMG_2478-Edit.jpg",
+    "image": "/images/products/half-cast-golden-glow-full-package-plus-lurlu-hitam-scrub.webp",
     "source_url": "https://idberrybeauty.com/product/halfcastfullpackage/"
   },
   {
@@ -325,7 +325,7 @@ export const IDBERRY_CATALOGUE: IdberryCatalogueItem[] = [
       "Glow & Even Tone"
     ],
     "type": "Oil",
-    "image": "https://idberrybeauty.com/wp-content/uploads/2022/07/IMG_9850-Edit.jpg",
+    "image": "/images/products/half-cast-golden-glow-oil.webp",
     "source_url": "https://idberrybeauty.com/product/10x-half-cast-smooth-fair-in-7days-oil/"
   },
   {
@@ -337,7 +337,7 @@ export const IDBERRY_CATALOGUE: IdberryCatalogueItem[] = [
       "Glow & Even Tone"
     ],
     "type": "Scrub",
-    "image": "https://idberrybeauty.com/wp-content/uploads/2022/07/IMG_2473.jpg",
+    "image": "/images/products/half-cast-golden-glow-body-scrub-250g.webp",
     "source_url": "https://idberrybeauty.com/product/10x-half-cast-smooth-fair-in-7days-body-scrub-250g/"
   },
   {
@@ -349,7 +349,7 @@ export const IDBERRY_CATALOGUE: IdberryCatalogueItem[] = [
       "Glow & Even Tone"
     ],
     "type": "Scrub",
-    "image": "https://idberrybeauty.com/wp-content/uploads/2022/07/IMG_2464.jpg",
+    "image": "/images/products/half-cast-golden-glow-body-scrub-500g.webp",
     "source_url": "https://idberrybeauty.com/product/10x-half-cast-smooth-fair-in-7days-body-scrub/"
   },
   {
@@ -361,7 +361,7 @@ export const IDBERRY_CATALOGUE: IdberryCatalogueItem[] = [
       "Glow & Even Tone"
     ],
     "type": "Soap",
-    "image": "https://idberrybeauty.com/wp-content/uploads/2022/07/IMG_9903.jpg",
+    "image": "/images/products/half-cast-golden-glow-facial-soap.webp",
     "source_url": "https://idberrybeauty.com/product/10x-half-cast-smooth-fair-in-7days-facial-soap/"
   },
   {
@@ -373,7 +373,7 @@ export const IDBERRY_CATALOGUE: IdberryCatalogueItem[] = [
       "Glow & Even Tone"
     ],
     "type": "Cream",
-    "image": "https://idberrybeauty.com/wp-content/uploads/2022/07/IMG_2465.jpg",
+    "image": "/images/products/half-cast-golden-glow-facial-cream-50g.webp",
     "source_url": "https://idberrybeauty.com/product/10x-half-cast-smooth-fair-in-7days-facial-cream-50g/"
   },
   {
@@ -385,7 +385,7 @@ export const IDBERRY_CATALOGUE: IdberryCatalogueItem[] = [
       "Glow & Even Tone"
     ],
     "type": "Set",
-    "image": "https://idberrybeauty.com/wp-content/uploads/2022/07/IMG_2460-Edit.jpg",
+    "image": "/images/products/half-cast-golden-glow-full-set.webp",
     "source_url": "https://idberrybeauty.com/product/10x-half-cast-smooth-fair-in-7days-full-set/"
   },
   {
@@ -397,7 +397,7 @@ export const IDBERRY_CATALOGUE: IdberryCatalogueItem[] = [
       "Dark Spots & Breakouts"
     ],
     "type": "Serum",
-    "image": "https://idberrybeauty.com/wp-content/uploads/2022/07/20220713_211940_0000.png",
+    "image": "/images/products/magic-perfect-skin-concentrated-body-serum.webp",
     "source_url": "https://idberrybeauty.com/product/magic-perfect-skin-concentrated-body-serum/"
   },
   {
@@ -409,7 +409,7 @@ export const IDBERRY_CATALOGUE: IdberryCatalogueItem[] = [
       "Dark Spots & Breakouts"
     ],
     "type": "Serum",
-    "image": "https://idberrybeauty.com/wp-content/uploads/2021/08/png_20220812_122449_0000.png",
+    "image": "/images/products/7-day-smooth-and-clear-vitamin-c-facial-serum.webp",
     "source_url": "https://idberrybeauty.com/product/idberry-vitamin-c-facial-serum/"
   },
   {
@@ -421,7 +421,7 @@ export const IDBERRY_CATALOGUE: IdberryCatalogueItem[] = [
       "Scars & Stretch Marks"
     ],
     "type": "Set",
-    "image": "https://idberrybeauty.com/wp-content/uploads/2021/06/png_20220901_085932_0000.png",
+    "image": "/images/products/scar-care-set.webp",
     "source_url": "https://idberrybeauty.com/product/scar-remover-set/"
   },
   {
@@ -433,7 +433,7 @@ export const IDBERRY_CATALOGUE: IdberryCatalogueItem[] = [
       "Glow & Even Tone"
     ],
     "type": "Soap",
-    "image": "https://idberrybeauty.com/wp-content/uploads/2021/06/png_20220726_105440_0000.png",
+    "image": "/images/products/pure-herbal-skinglow-black-soap.webp",
     "source_url": "https://idberrybeauty.com/product/herbal-black-soap/"
   },
   {
@@ -445,7 +445,7 @@ export const IDBERRY_CATALOGUE: IdberryCatalogueItem[] = [
       "Glow & Even Tone"
     ],
     "type": "Other",
-    "image": "https://idberrybeauty.com/wp-content/uploads/2021/06/png_20220901_101817_0000.png",
+    "image": "/images/products/magic-hair-booster.webp",
     "source_url": "https://idberrybeauty.com/product/herbal-hair-booster/"
   },
   {
@@ -457,7 +457,7 @@ export const IDBERRY_CATALOGUE: IdberryCatalogueItem[] = [
       "Dark Spots & Breakouts"
     ],
     "type": "Cream",
-    "image": "https://idberrybeauty.com/wp-content/uploads/2021/06/png_20220901_121658_0000.png",
+    "image": "/images/products/magic-skin-repair-cream.webp",
     "source_url": "https://idberrybeauty.com/product/skin-repair-cream/"
   },
   {
@@ -469,7 +469,7 @@ export const IDBERRY_CATALOGUE: IdberryCatalogueItem[] = [
       "Glow & Even Tone"
     ],
     "type": "Cream",
-    "image": "https://idberrybeauty.com/wp-content/uploads/2021/06/IMG_2428.jpg",
+    "image": "/images/products/snow-white-radiance-face-cream.webp",
     "source_url": "https://idberrybeauty.com/product/arabian-day-face-cream/"
   },
   {
@@ -481,7 +481,7 @@ export const IDBERRY_CATALOGUE: IdberryCatalogueItem[] = [
       "Glow & Even Tone"
     ],
     "type": "Soap",
-    "image": "https://idberrybeauty.com/wp-content/uploads/2021/06/png_20221120_105503_0000.png",
+    "image": "/images/products/radiance-glow-bar-soap.webp",
     "source_url": "https://idberrybeauty.com/product/whitening-glow-bar-soap/"
   },
   {
@@ -493,7 +493,7 @@ export const IDBERRY_CATALOGUE: IdberryCatalogueItem[] = [
       "Glow & Even Tone"
     ],
     "type": "Soap",
-    "image": "https://idberrybeauty.com/wp-content/uploads/2021/06/png_20221120_104555_0000.png",
+    "image": "/images/products/snow-white-bar-soap.webp",
     "source_url": "https://idberrybeauty.com/product/snow-white-bar-soap/"
   },
   {
@@ -505,7 +505,7 @@ export const IDBERRY_CATALOGUE: IdberryCatalogueItem[] = [
       "Glow & Even Tone"
     ],
     "type": "Cleanser & Bath",
-    "image": "https://idberrybeauty.com/wp-content/uploads/2021/06/IMG_2469.jpg",
+    "image": "/images/products/half-cast-golden-glow-facial-cleanser.webp",
     "source_url": "https://idberrybeauty.com/product/half-cast-face-cleanser/"
   },
   {
@@ -517,7 +517,7 @@ export const IDBERRY_CATALOGUE: IdberryCatalogueItem[] = [
       "Glow & Even Tone"
     ],
     "type": "Cleanser & Bath",
-    "image": "https://idberrybeauty.com/wp-content/uploads/2021/06/IMG_9830-Edit.jpg",
+    "image": "/images/products/snow-white-radiance-face-cleanser.webp",
     "source_url": "https://idberrybeauty.com/product/snow-white-face-cleanser/"
   },
   {
@@ -529,7 +529,7 @@ export const IDBERRY_CATALOGUE: IdberryCatalogueItem[] = [
       "Glow & Even Tone"
     ],
     "type": "Soap",
-    "image": "https://idberrybeauty.com/wp-content/uploads/2021/06/IMG_9916.jpg",
+    "image": "/images/products/snow-white-radiance-face-soap.webp",
     "source_url": "https://idberrybeauty.com/product/snow-white-face-soap/"
   },
   {
@@ -541,7 +541,7 @@ export const IDBERRY_CATALOGUE: IdberryCatalogueItem[] = [
       "Glow & Even Tone"
     ],
     "type": "Set",
-    "image": "https://idberrybeauty.com/wp-content/uploads/2021/06/Peach-Modern-Top-3-Popular-Beauty-Products-Instagram-Post_20240916_130029_0000.png",
+    "image": "/images/products/snow-white-radiance-facial-set.webp",
     "source_url": "https://idberrybeauty.com/product/snow-white-face-set/"
   },
   {
@@ -553,7 +553,7 @@ export const IDBERRY_CATALOGUE: IdberryCatalogueItem[] = [
       "Glow & Even Tone"
     ],
     "type": "Set",
-    "image": "https://idberrybeauty.com/wp-content/uploads/2021/06/IMG_2452-Edit-scaled.jpg",
+    "image": "/images/products/caramel-glow-student-package.webp",
     "source_url": "https://idberrybeauty.com/product/caramel-glow-student-package/"
   },
   {
@@ -565,7 +565,7 @@ export const IDBERRY_CATALOGUE: IdberryCatalogueItem[] = [
       "Glow & Even Tone"
     ],
     "type": "Set",
-    "image": "https://idberrybeauty.com/wp-content/uploads/2021/06/20231122_120512-01.jpeg-1.jpg",
+    "image": "/images/products/caramel-glow-luxury-package.webp",
     "source_url": "https://idberrybeauty.com/product/caramel-glow-luxury-package/"
   },
   {
@@ -577,7 +577,7 @@ export const IDBERRY_CATALOGUE: IdberryCatalogueItem[] = [
       "Scars & Stretch Marks"
     ],
     "type": "Set",
-    "image": "https://idberrybeauty.com/wp-content/uploads/2021/06/IMG-20210601-WA0102.jpg",
+    "image": "/images/products/stretch-mark-care-set.webp",
     "source_url": "https://idberrybeauty.com/product/magic-stretch-mark-removal-set/"
   },
   {
@@ -589,7 +589,7 @@ export const IDBERRY_CATALOGUE: IdberryCatalogueItem[] = [
       "Glow & Even Tone"
     ],
     "type": "Cream",
-    "image": "https://idberrybeauty.com/wp-content/uploads/2021/06/png_20220901_134338_0000.png",
+    "image": "/images/products/flawless-radiance-face-cream.webp",
     "source_url": "https://idberrybeauty.com/product/flawless-white-face-cream/"
   },
   {
@@ -601,7 +601,7 @@ export const IDBERRY_CATALOGUE: IdberryCatalogueItem[] = [
       "Glow & Even Tone"
     ],
     "type": "Cream",
-    "image": "https://idberrybeauty.com/wp-content/uploads/2021/06/IMG_2465.jpg",
+    "image": "/images/products/half-cast-golden-glow-facial-cream-100g.webp",
     "source_url": "https://idberrybeauty.com/product/half-cast-face-cream/"
   },
   {
@@ -613,7 +613,7 @@ export const IDBERRY_CATALOGUE: IdberryCatalogueItem[] = [
       "Kids"
     ],
     "type": "Lotion",
-    "image": "https://idberrybeauty.com/wp-content/uploads/2021/06/png_20220713_184150_0000.png",
+    "image": "/images/products/flawless-brightening-baby-lotion.webp",
     "source_url": "https://idberrybeauty.com/product/brightening-baby-lotion/"
   },
   {
@@ -625,7 +625,7 @@ export const IDBERRY_CATALOGUE: IdberryCatalogueItem[] = [
       "Glow & Even Tone"
     ],
     "type": "Lotion",
-    "image": "https://idberrybeauty.com/wp-content/uploads/2021/06/IMG_2444.jpg",
+    "image": "/images/products/snow-white-plus-radiance-lotion-250ml.webp",
     "source_url": "https://idberrybeauty.com/product/luxury-snow-white-plus-lotion-5days-action-small/"
   },
   {
@@ -637,7 +637,7 @@ export const IDBERRY_CATALOGUE: IdberryCatalogueItem[] = [
       "Glow & Even Tone"
     ],
     "type": "Lotion",
-    "image": "https://idberrybeauty.com/wp-content/uploads/2021/06/IMG_9834.jpg",
+    "image": "/images/products/snow-white-radiance-lotion-250ml.webp",
     "source_url": "https://idberrybeauty.com/product/luxury-snow-white-lotion-small/"
   },
   {
@@ -649,7 +649,7 @@ export const IDBERRY_CATALOGUE: IdberryCatalogueItem[] = [
       "Glow & Even Tone"
     ],
     "type": "Lotion",
-    "image": "https://idberrybeauty.com/wp-content/uploads/2021/03/IMG_2474.jpg",
+    "image": "/images/products/half-cast-golden-glow-lotion-250ml.webp",
     "source_url": "https://idberrybeauty.com/product/halfcast-luxury-lotion-2/"
   },
   {
@@ -661,7 +661,7 @@ export const IDBERRY_CATALOGUE: IdberryCatalogueItem[] = [
       "Glow & Even Tone"
     ],
     "type": "Set",
-    "image": "https://idberrybeauty.com/wp-content/uploads/2021/03/IMG_2471-Edit.jpg",
+    "image": "/images/products/half-cast-golden-glow-mini-package.webp",
     "source_url": "https://idberrybeauty.com/product/luxury-half-cast-min-set/"
   },
   {
@@ -673,7 +673,7 @@ export const IDBERRY_CATALOGUE: IdberryCatalogueItem[] = [
       "Glow & Even Tone"
     ],
     "type": "Lotion",
-    "image": "https://idberrybeauty.com/wp-content/uploads/2021/03/IMG_9847-Edit.jpg",
+    "image": "/images/products/half-cast-golden-glow-lotion-500ml.webp",
     "source_url": "https://idberrybeauty.com/product/halfcast-luxury-lotion/"
   },
   {
@@ -685,7 +685,7 @@ export const IDBERRY_CATALOGUE: IdberryCatalogueItem[] = [
       "Glow & Even Tone"
     ],
     "type": "Set",
-    "image": "https://idberrybeauty.com/wp-content/uploads/2021/03/IMG_9893.jpg",
+    "image": "/images/products/snow-white-student-package.webp",
     "source_url": "https://idberrybeauty.com/product/snow-white-student-set/"
   },
   {
@@ -697,7 +697,7 @@ export const IDBERRY_CATALOGUE: IdberryCatalogueItem[] = [
       "Glow & Even Tone"
     ],
     "type": "Set",
-    "image": "https://idberrybeauty.com/wp-content/uploads/2021/06/IMG_2435-Edit-scaled.jpg",
+    "image": "/images/products/half-cast-golden-glow-student-package.webp",
     "source_url": "https://idberrybeauty.com/product/halfcast-whitening-student-set/"
   },
   {
@@ -709,7 +709,7 @@ export const IDBERRY_CATALOGUE: IdberryCatalogueItem[] = [
       "Glow & Even Tone"
     ],
     "type": "Cream",
-    "image": "https://idberrybeauty.com/wp-content/uploads/2021/03/IMG_2477-Edit-1.jpg",
+    "image": "/images/products/pink-lips-cream.webp",
     "source_url": "https://idberrybeauty.com/product/permanent-pink-lips-cream/"
   },
   {
@@ -721,7 +721,7 @@ export const IDBERRY_CATALOGUE: IdberryCatalogueItem[] = [
       "Dark Spots & Breakouts"
     ],
     "type": "Cream",
-    "image": "https://idberrybeauty.com/wp-content/uploads/2021/03/png_20221126_092116_0000.png",
+    "image": "/images/products/sun-recovery-face-cream.webp",
     "source_url": "https://idberrybeauty.com/product/sunburn-removal-face-cream/"
   },
   {
@@ -733,7 +733,7 @@ export const IDBERRY_CATALOGUE: IdberryCatalogueItem[] = [
       "Dark Spots & Breakouts"
     ],
     "type": "Set",
-    "image": "https://idberrybeauty.com/wp-content/uploads/2021/03/20221125_115439_0000-1.png",
+    "image": "/images/products/all-clear-facial-set.webp",
     "source_url": "https://idberrybeauty.com/product/all-clear-facial-set/"
   },
   {
@@ -745,7 +745,7 @@ export const IDBERRY_CATALOGUE: IdberryCatalogueItem[] = [
       "Glow & Even Tone"
     ],
     "type": "Set",
-    "image": "https://idberrybeauty.com/wp-content/uploads/2021/03/IMG_5881-Edit-1-scaled.jpg",
+    "image": "/images/products/royal-customized-radiance-super-luxury-set.webp",
     "source_url": "https://idberrybeauty.com/product/royal-customised-pure-white-glow-luxury-set/"
   },
   {
@@ -757,7 +757,7 @@ export const IDBERRY_CATALOGUE: IdberryCatalogueItem[] = [
       "Knees & Knuckles"
     ],
     "type": "Set",
-    "image": "https://idberrybeauty.com/wp-content/uploads/2021/03/IMG-20220813-WA0017.jpg",
+    "image": "/images/products/dark-knuckles-care-set.webp",
     "source_url": "https://idberrybeauty.com/product/magic-dark-knuckle-removal-set/"
   },
   {
@@ -769,7 +769,7 @@ export const IDBERRY_CATALOGUE: IdberryCatalogueItem[] = [
       "Glow & Even Tone"
     ],
     "type": "Set",
-    "image": "https://idberrybeauty.com/wp-content/uploads/2021/03/IMG_9879.jpg",
+    "image": "/images/products/snow-white-plus-radiance-full-set.webp",
     "source_url": "https://idberrybeauty.com/product/luxury-snow-white-plus-set/"
   },
   {
@@ -781,7 +781,7 @@ export const IDBERRY_CATALOGUE: IdberryCatalogueItem[] = [
       "Glow & Even Tone"
     ],
     "type": "Lotion",
-    "image": "https://idberrybeauty.com/wp-content/uploads/2021/03/IMG_2425-Edit-1-scaled.jpg",
+    "image": "/images/products/snow-white-radiance-lotion-500ml.webp",
     "source_url": "https://idberrybeauty.com/product/luxury-snow-white-lotion-big/"
   },
   {
@@ -793,7 +793,7 @@ export const IDBERRY_CATALOGUE: IdberryCatalogueItem[] = [
       "Glow & Even Tone"
     ],
     "type": "Set",
-    "image": "https://idberrybeauty.com/wp-content/uploads/2021/02/IMG_9877.jpg",
+    "image": "/images/products/snow-white-radiance-mini-set.webp",
     "source_url": "https://idberrybeauty.com/product/exclusive-snow-white-mini-set/"
   },
   {
@@ -805,7 +805,7 @@ export const IDBERRY_CATALOGUE: IdberryCatalogueItem[] = [
       "Glow & Even Tone"
     ],
     "type": "Set",
-    "image": "https://idberrybeauty.com/wp-content/uploads/2021/02/IMG_2423-Edit-1-scaled.jpg",
+    "image": "/images/products/snow-white-radiance-full-set.webp",
     "source_url": "https://idberrybeauty.com/product/exclusive-snow-white-full-set/"
   },
   {
@@ -817,7 +817,7 @@ export const IDBERRY_CATALOGUE: IdberryCatalogueItem[] = [
       "Glow & Even Tone"
     ],
     "type": "Set",
-    "image": "https://idberrybeauty.com/wp-content/uploads/2021/02/IMG_2442-Edit-scaled.jpg",
+    "image": "/images/products/snow-white-plus-radiance-mini-set.webp",
     "source_url": "https://idberrybeauty.com/product/exclusive-snow-white-plus-mini-set/"
   },
   {
@@ -829,7 +829,7 @@ export const IDBERRY_CATALOGUE: IdberryCatalogueItem[] = [
       "Glow & Even Tone"
     ],
     "type": "Lotion",
-    "image": "https://idberrybeauty.com/wp-content/uploads/2021/02/IMG_9801-Edit.jpg",
+    "image": "/images/products/snow-white-plus-radiance-lotion-500ml.webp",
     "source_url": "https://idberrybeauty.com/product/luxury-snow-white-plus-lotion-5days-action-big/"
   },
   {
@@ -841,7 +841,7 @@ export const IDBERRY_CATALOGUE: IdberryCatalogueItem[] = [
       "Glow & Even Tone"
     ],
     "type": "Cleanser & Bath",
-    "image": "https://idberrybeauty.com/wp-content/uploads/2021/02/WhatsApp-Image-2021-02-24-at-7.51.09-PM.jpeg",
+    "image": "/images/products/instant-radiance-liquid-bath.webp",
     "source_url": "https://idberrybeauty.com/product/idberry-instant-whitening-bath/"
   },
   {
@@ -853,7 +853,7 @@ export const IDBERRY_CATALOGUE: IdberryCatalogueItem[] = [
       "Glow & Even Tone"
     ],
     "type": "Soap",
-    "image": "https://idberrybeauty.com/wp-content/uploads/2021/03/IMG_5905-Edit.jpg",
+    "image": "/images/products/snow-white-radiance-black-soap-1kg.webp",
     "source_url": "https://idberrybeauty.com/product/snow-white-black-soap-2/"
   },
   {
@@ -865,7 +865,7 @@ export const IDBERRY_CATALOGUE: IdberryCatalogueItem[] = [
       "Glow & Even Tone"
     ],
     "type": "Cleanser & Bath",
-    "image": "https://idberrybeauty.com/wp-content/uploads/2021/02/WhatsApp-Image-2021-02-24-at-7.50.34-PM.jpeg",
+    "image": "/images/products/snow-white-liquid-bath-1-litre.webp",
     "source_url": "https://idberrybeauty.com/product/idberry-snow-white-shower-bath/"
   }
 ]

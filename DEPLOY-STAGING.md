@@ -80,6 +80,24 @@ Copy the publishable key from the seed log, or from Admin >
 Settings > Publishable API Keys, for step 3. The admin dashboard is at
 https://api-idberry.teta.dpdns.org/app.
 
+#### Updating an already-seeded database (images + NGN prices)
+
+The seed only runs on an empty database. On a database seeded before the
+local-WebP / NGN-conversion change, after a backend redeploy that includes
+the updated catalogue, run this exact command once from the backend app
+terminal in Dokploy (it updates existing products in place, never creates
+any, is idempotent, and fails loudly on any mismatch — check its log lines
+before proceeding):
+
+```
+cd apps/backend && npx medusa exec ./src/scripts/update-idberry-images-prices.ts
+```
+
+Then redeploy the storefront (step 3) so the new public WebP images in
+`apps/storefront/public/images/products/` are served. Do this update-script
+run before the storefront redeploy, so the storefront never serves products
+whose database records still point at the old WordPress image URLs.
+
 ### 3. Storefront app (`idberry-storefront`)
 
 - Source: same repo and branch.
@@ -129,16 +147,22 @@ medusa-paystack plugin targets Medusa 2.16.x and this starter is on
 
 ## What is still placeholder on staging (do not call this live-ready)
 
-- NGN prices are USD x 1550 placeholders. Real NGN prices are a client
-  input; see README-IDBERRY.md section 6.
+- NGN prices are a conversion, not real Naira prices: USD × 1350, rounded to
+  the nearest 500 Naira (rate chosen 28 Oct 2026, when the official window
+  was about 1341–1353). Owner confirmation of real Naira prices is still
+  outstanding; see README-IDBERRY.md section 6.
 - Stock is 1000 per SKU, shipping rates are placeholders (Lagos
   3500 NGN, nationwide 7500 NGN, international $45), tax is 0% until
   configured, and NAFDAC numbers, ingredients, descriptions and
   how-to-use are one-line placeholders.
-- Product images are hot-linked from the old WordPress site. Before
-  the old site is decommissioned, upload images to S3/Cloudflare R2
-  via the Medusa S3 file provider and add that host to next.config.js
-  remotePatterns.
+- Product images and Glow Journal cover images are local WebP files in the
+  storefront public folder
+  (`apps/storefront/public/images/products/<handle>.webp`, relative paths
+  in the catalogue and journal frontmatter, so no repointing is needed on
+  the main-domain cutover). The old WordPress site still hosts the
+  originals. Existing databases need the update
+  script in step 2 above run once, then a storefront redeploy, before the
+  new images and NGN prices show on staging.
 - Logo, favicon and OG images are still the starter's. Testimonials
   and before-afters need written consent before publishing.
 - The five Glow Journal posts are drafts attributed to the founder

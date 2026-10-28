@@ -8,7 +8,8 @@
  *   - sales channel "IDBERRY Web Store" + publishable API key
  *   - 7 collections, 5 concern categories, product-type tags
  *   - all 71 catalogue products (one "Standard" variant each), USD + NGN prices,
- *     thumbnails hot-linked from idberrybeauty.com
+ *     thumbnails are local WebP files in the storefront public folder
+ *     ("/images/products/<handle>.webp"), served from the storefront domain
  *
  * It runs automatically on the first `medusa db:migrate` (see
  * src/migration-scripts/initial-data-seed.ts). To run it by hand on a fresh DB:
@@ -45,11 +46,16 @@ import { IDBERRY_CATALOGUE } from "../data/idberry-catalogue"
 import { IDBERRY_REGION_STORE_POLICIES } from "../lib/region-store-policies"
 
 /**
- * PLACEHOLDER exchange rate. NGN prices below are simply USD × 1550 so the
- * Nigeria region has something to show. Replace with the client's real Naira
- * price list before launch (edit in Admin → Products, or update this seed).
+ * NGN conversion rate chosen 28 Oct 2026. This is a CONVERSION, not an
+ * owner-supplied Naira price list: the official USD/NGN window on 28 Oct 2026
+ * was about 1341-1353, so 1350 sits inside it. NGN amounts are rounded to
+ * the nearest 500 Naira. Owner confirmation of real Naira prices is still
+ * outstanding; when the owner supplies a real Naira price list, replace
+ * these converted amounts. USD prices are the real list prices and are
+ * unchanged.
  */
-const NGN_PER_USD = 1550
+const NGN_PER_USD = 1350
+const NGN_ROUND_TO = 500
 
 /** Payment providers enabled per region. `pp_paystack_paystack` comes from medusa-paystack (id "paystack"). */
 const PAYMENT_PROVIDERS = ["pp_paystack_paystack", "pp_system_default"]
@@ -341,8 +347,10 @@ export default async function seedIdberry({ container }: { container: MedusaCont
               options: { Format: "Standard" },
               prices: [
                 { currency_code: "usd", amount: p.price_usd },
-                // PLACEHOLDER NGN price = USD × NGN_PER_USD. Replace with real Naira pricing.
-                { currency_code: "ngn", amount: Math.round(p.price_usd * NGN_PER_USD) },
+                // NGN CONVERSION (28 Oct 2026): USD x 1350, rounded to the
+                // nearest 500 Naira. NOT a real Naira price list; owner
+                // confirmation of real Naira prices is still outstanding.
+                { currency_code: "ngn", amount: Math.round((p.price_usd * NGN_PER_USD) / NGN_ROUND_TO) * NGN_ROUND_TO },
               ],
             },
           ],

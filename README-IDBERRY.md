@@ -35,8 +35,13 @@ Custom headless store for **IDBERRY Beauty** (Lagos luxury skincare, founder Idu
 - Collections: Snow White, Half Cast, Caramel Glow, Royal Customized, Targeted Care, Little Ones, Herbal
 - Concern categories: Glow & Even Tone, Dark Spots & Breakouts, Scars & Stretch Marks, Knees & Knuckles, Kids
 - Product-type tags: Set, Soap, Cream, Lotion, Cleanser & Bath, Scrub, Oil, Serum, Other
-- **71 products**, one "Standard" variant each, published, thumbnail + image hot-linked from `idberrybeauty.com`,
-  prices in USD (real list prices) and NGN (**placeholder = USD × 1550**, see `NGN_PER_USD` in the seed)
+- **71 products**, one "Standard" variant each, published, thumbnail + image
+  are local WebP files in the storefront (`apps/storefront/public/images/products/<handle>.webp`,
+  downloaded from the old WordPress site on 28 Oct 2026 and converted to WebP, max 1200px wide, quality 80;
+  the catalogue `image` field holds the relative path `/images/products/<handle>.webp`, so the same
+  files serve from the staging domain and the main domain without repointing),
+  prices in USD (real list prices) and NGN (USD × 1350, rounded to the nearest 500 Naira — a conversion
+  chosen 28 Oct 2026, NOT an owner-supplied Naira price list; see `NGN_PER_USD` in the seed)
 - `source_url` (the old WordPress product URL) is kept in the data file only — use it to build 301 redirects from the old site. It is deliberately **not** stored in product metadata, because metadata is public via the Store API and the old slugs contain non-compliant "whitening" wording.
 - One of the two "Flawless Brightening Kids Lotion" listings was renamed "Flawless Brightening Baby Lotion" (its legacy URL is `/brightening-baby-lotion/`) so names and handles are unique.
 
@@ -102,6 +107,23 @@ cp .env.template .env.local            # paste the publishable key from the seed
 pnpm dev                               # http://localhost:8000/ng
 ```
 
+### Updating existing products (images + NGN prices)
+
+On a database that was already seeded before the local-WebP / NGN-conversion
+change, the seed does not re-run. Update the existing products in place with:
+
+```bash
+cd apps/backend
+npx medusa exec ./src/scripts/update-idberry-images-prices.ts
+```
+
+The script never creates products, is idempotent, logs one line per product,
+and fails loudly if a product or variant is missing or if the post-update
+verification does not match the catalogue. It applies the local WebP image
+paths and the NGN conversion (USD × 1350, nearest 500 Naira, chosen
+28 Oct 2026, pending owner confirmation of real Naira prices). See the
+script header for the verification caveat on the update workflow shape.
+
 ### Paystack setup
 1. Paystack dashboard → Settings → API Keys & Webhooks:
    - **Callback URL**: `https://<storefront>/api/paystack/callback` (locally use an ngrok/Cloudflare tunnel URL)
@@ -117,8 +139,12 @@ pnpm dev                               # http://localhost:8000/ng
   Build `pnpm --filter @dtc/backend build`, start `cd apps/backend/.medusa/server && npx medusa start` (run `npx medusa db:migrate` as a release/pre-deploy command).
   For production, switch to Redis-backed modules (event bus, workflow engine, caching/locking) per the Medusa deployment guide,
   and set `MEDUSA_WORKER_MODE` (`server` + `worker` instances) if traffic grows. Use a custom domain like `api.idberrybeauty.com`.
-- **File storage**: product images are currently hot-linked from the old WordPress site. Before decommissioning it, upload
-  images to S3/Cloudflare R2 via the Medusa S3 file provider and add that host to `next.config.js` `remotePatterns`.
+- **File storage**: product images and Glow Journal cover images are local
+  WebP files in the storefront public folder (see section 1). No S3/R2 file
+  provider is configured; the old WordPress site still hosts the original
+  JPG/PNG files and the `source_url` fields in the catalogue, but the store
+  no longer loads images from it. The `images.remotePatterns` entries for
+  `idberrybeauty.com` in `next.config.js` are kept as a fallback only.
 - **Storefront**: Vercel (root directory `apps/storefront`), env vars from section 2, domain `idberrybeauty.com`.
 - Point the Paystack callback/webhook URLs at the production domains and switch to live keys.
 
@@ -142,10 +168,16 @@ pnpm dev                               # http://localhost:8000/ng
 
 ## 6. TODO before launch (client inputs)
 
-- [ ] **Real NGN prices** (seed uses USD × 1550 placeholders) and confirm USD prices for diaspora
+- [ ] **Real NGN prices** — owner confirmation still outstanding. The seed and
+  `update-idberry-images-prices.ts` currently use a conversion (USD × 1350,
+  rounded to the nearest 500 Naira, chosen 28 Oct 2026), NOT an owner-supplied
+  Naira price list. USD prices are the real list prices; confirm USD prices
+  for diaspora with the owner as well.
 - [ ] **NAFDAC registration numbers** per product (`metadata.nafdac_no` placeholder)
 - [ ] **Ingredients, descriptions and how-to-use** per product (seed has one-line placeholders)
-- [ ] **High-res product and founder photos**; move images off the WordPress host
+- [ ] **High-res product and founder photos** — product photos and Journal
+  cover images are now local WebP files (see section 1), converted from
+  the WordPress uploads; founder photos are still outstanding
 - [ ] **Shipping zones & rates** (Lagos / nationwide / international couriers) and delivery times
 - [ ] Tax/VAT setup (7.5% NG VAT?) with the client's accountant
 - [ ] Stock quantities (seed sets 1000 per SKU)

@@ -41,21 +41,19 @@ export const HERO_CARDS = [
     title: "Half Cast Golden Glow Facial Package",
     handle: "half-cast-golden-glow-facial-package",
     collection: "Half Cast",
-    image:
-      "https://idberrybeauty.com/wp-content/uploads/2024/10/Neutral-Elegant-Skin-Care-Cosmetic-Product-Podium-Facebook-Post_20240916_125923_0000-1.png",
+    image: "/images/products/half-cast-golden-glow-facial-package.webp",
   },
   {
     title: "Snow White Plus Radiance Facial Cream 100g",
     handle: "snow-white-plus-radiance-facial-cream-100g",
     collection: "Snow White",
-    image: "https://idberrybeauty.com/wp-content/uploads/2024/02/IMG_5915-Edit.jpg",
+    image: "/images/products/snow-white-plus-radiance-facial-cream-100g.webp",
   },
   {
     title: "Caramel Glow Luxury Package",
     handle: "caramel-glow-luxury-package",
     collection: "Caramel Glow",
-    image:
-      "https://idberrybeauty.com/wp-content/uploads/2021/06/20231122_120512-01.jpeg-1.jpg",
+    image: "/images/products/caramel-glow-luxury-package.webp",
   },
 ]
 
@@ -71,39 +69,34 @@ export const COLLECTIONS = [
   {
     title: "Snow White",
     handle: "snow-white",
-    image: "https://idberrybeauty.com/wp-content/uploads/2024/02/IMG_2480.jpg",
+    image: "/images/products/snow-white-radiance-full-set-plus-lurlu-hitam-scrub.webp",
   },
   {
     title: "Half Cast",
     handle: "half-cast",
-    image:
-      "https://idberrybeauty.com/wp-content/uploads/2024/10/Neutral-Elegant-Skin-Care-Cosmetic-Product-Podium-Facebook-Post_20240916_125923_0000-1.png",
+    image: "/images/products/half-cast-golden-glow-facial-package.webp",
   },
   {
     title: "Caramel Glow",
     handle: "caramel-glow",
-    image:
-      "https://idberrybeauty.com/wp-content/uploads/2021/06/IMG_2452-Edit-scaled.jpg",
+    image: "/images/products/caramel-glow-student-package.webp",
   },
   {
     title: "Royal Customized",
     handle: "royal-customized",
-    image:
-      "https://idberrybeauty.com/wp-content/uploads/2021/03/IMG_5881-Edit-1-scaled.jpg",
+    image: "/images/products/royal-customized-radiance-super-luxury-set.webp",
   },
   {
     title: "Targeted Care",
     handle: "targeted-care",
     blurb:
       "Focused treatments for scars, stretch marks, spots, breakouts and dark knuckles.",
-    image:
-      "https://idberrybeauty.com/wp-content/uploads/2021/06/png_20220901_085932_0000.png",
+    image: "/images/products/scar-care-set.webp",
   },
   {
     title: "Little Ones",
     handle: "little-ones",
-    image:
-      "https://idberrybeauty.com/wp-content/uploads/2022/07/Aesthetic-Three-Best-Seller-Product-with-Podium-Instagram-Post_20241001_185852_0000-1.png",
+    image: "/images/products/flawless-brightening-kids-set.webp",
   },
 ]
 
