@@ -31,6 +31,22 @@
  * { products: [{ id, thumbnail, images: [{ id, url }] }] }. Verified
  * 28 Oct 2026 against the installed 2.22.1 package sources:
  * @medusajs/types UpsertProductImageDTO ({ id, url }).
+ *
+ * Replacement behaviour, verified 29 Oct 2026 against the installed
+ * 2.22.1 package sources: updateProductsWorkflow REPLACES the whole
+ * image list, it does not merge. The workflow calls the product
+ * module upsertProducts, which deep-updates the product with
+ * MikroORM assign; assigning an array to the images collection calls
+ * collection.set, which removes the old items and adds the new ones,
+ * and the hasMany images relation is built with orphanRemoval true,
+ * so records absent from the supplied list are removed. Re-running
+ * this script therefore also removes extra image records added later
+ * (for example localhost uploads) and restores the thumbnail, as
+ * long as the four catalogue images are the first four records in
+ * the returned order. Variant images are derived from the product
+ * images, so they follow the same list. The re-query at the end
+ * fails loudly if the result does not match exactly, so a re-run
+ * that did not remove the extras is reported, not silently accepted.
  */
 import type { MedusaContainer } from "@medusajs/framework"
 import { ContainerRegistrationKeys } from "@medusajs/framework/utils"
