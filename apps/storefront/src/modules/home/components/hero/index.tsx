@@ -120,7 +120,6 @@ const Hero = () => {
                     <h2 className="mt-1 font-serif text-xl leading-snug">
                       {card.title}
                     </h2>
-                    <p className="mt-1 text-sm text-ivory/75">{card.blurb}</p>
                     <LocalizedClientLink
                       href={`/products/${card.handle}`}
                       className="mt-2 inline-block text-sm text-ivory underline underline-offset-4 hover:text-gold"

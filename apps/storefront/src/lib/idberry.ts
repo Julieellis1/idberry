@@ -35,13 +35,12 @@ export const HERO = {
   poster: "/videos/idberry-hero-poster.jpg",
 }
 
-/** Real catalogue products shown on the hero cards. Titles, handles and images match the backend seed. Blurbs reuse the collection copy above. */
+/** Real catalogue products shown on the hero cards. Titles, handles and images match the backend seed. Cards show title and See Details only, no description. */
 export const HERO_CARDS = [
   {
     title: "Half Cast Golden Glow Facial Package",
     handle: "half-cast-golden-glow-facial-package",
     collection: "Half Cast",
-    blurb: "A golden-toned glow ritual for warm, honeyed radiance.",
     image:
       "https://idberrybeauty.com/wp-content/uploads/2024/10/Neutral-Elegant-Skin-Care-Cosmetic-Product-Podium-Facebook-Post_20240916_125923_0000-1.png",
   },
@@ -49,14 +48,12 @@ export const HERO_CARDS = [
     title: "Snow White Plus Radiance Facial Cream 100g",
     handle: "snow-white-plus-radiance-facial-cream-100g",
     collection: "Snow White",
-    blurb: "Our signature radiance ritual for a luminous, even complexion.",
     image: "https://idberrybeauty.com/wp-content/uploads/2024/02/IMG_5915-Edit.jpg",
   },
   {
     title: "Caramel Glow Luxury Package",
     handle: "caramel-glow-luxury-package",
     collection: "Caramel Glow",
-    blurb: "For deep, rich tones that want to stay rich and simply glow.",
     image:
       "https://idberrybeauty.com/wp-content/uploads/2021/06/20231122_120512-01.jpeg-1.jpg",
   },
@@ -74,27 +71,23 @@ export const COLLECTIONS = [
   {
     title: "Snow White",
     handle: "snow-white",
-    blurb: "Our signature radiance ritual for a luminous, even complexion.",
     image: "https://idberrybeauty.com/wp-content/uploads/2024/02/IMG_2480.jpg",
   },
   {
     title: "Half Cast",
     handle: "half-cast",
-    blurb: "A golden-toned glow ritual for warm, honeyed radiance.",
     image:
       "https://idberrybeauty.com/wp-content/uploads/2024/10/Neutral-Elegant-Skin-Care-Cosmetic-Product-Podium-Facebook-Post_20240916_125923_0000-1.png",
   },
   {
     title: "Caramel Glow",
     handle: "caramel-glow",
-    blurb: "For deep, rich tones that want to stay rich and simply glow.",
     image:
       "https://idberrybeauty.com/wp-content/uploads/2021/06/IMG_2452-Edit-scaled.jpg",
   },
   {
     title: "Royal Customized",
     handle: "royal-customized",
-    blurb: "Our most indulgent ritual, tailored to you.",
     image:
       "https://idberrybeauty.com/wp-content/uploads/2021/03/IMG_5881-Edit-1-scaled.jpg",
   },
@@ -109,7 +102,6 @@ export const COLLECTIONS = [
   {
     title: "Little Ones",
     handle: "little-ones",
-    blurb: "Gentle care for kids' skin and hair.",
     image:
       "https://idberrybeauty.com/wp-content/uploads/2022/07/Aesthetic-Three-Best-Seller-Product-with-Podium-Instagram-Post_20241001_185852_0000-1.png",
   },
