@@ -46,6 +46,7 @@ export default function ProductActions({
   )
   const [isUrlVariantApplied, setIsUrlVariantApplied] = useState(false)
   const [isAdding, setIsAdding] = useState(false)
+  const [quantity, setQuantity] = useState(1)
   const countryCode = useParams().countryCode as string
 
   const selectedVariant = useMemo(() => {
@@ -122,7 +123,7 @@ export default function ProductActions({
 
     await addToCart({
       variantId: selectedVariant.id,
-      quantity: 1,
+      quantity,
       countryCode,
     })
     notifyCartUpdated()
@@ -155,7 +156,7 @@ export default function ProductActions({
             name="variant_id"
             value={isValidVariant ? selectedVariant?.id ?? "" : ""}
           />
-          <input type="hidden" name="quantity" value="1" />
+          <input type="hidden" name="quantity" value={quantity} />
           <div>
             {(product.variants?.length ?? 0) > 1 && (
               <div className="flex flex-col gap-y-4">
@@ -190,26 +191,57 @@ export default function ProductActions({
             </p>
           )}
 
-          <Button
-            type="submit"
-            disabled={
-              !inStock ||
-              !selectedVariant ||
-              !!disabled ||
-              isAdding ||
-              !isValidVariant
-            }
-            variant="primary"
-            className="w-full h-12 rounded-full text-sm uppercase tracking-widest"
-            isLoading={isAdding}
-            data-testid="add-product-button"
-          >
-            {!selectedVariant
-              ? "Select variant"
-              : !inStock || !isValidVariant
-              ? "Out of stock"
-              : "Add to cart"}
-          </Button>
+          <div className="flex items-stretch gap-3">
+            <div
+              className="flex h-12 shrink-0 items-center rounded-full bg-gray-100 px-1"
+              data-testid="quantity-stepper"
+            >
+              <button
+                type="button"
+                aria-label="Decrease quantity"
+                disabled={quantity <= 1 || !!disabled || isAdding}
+                onClick={() => setQuantity((q) => Math.max(1, q - 1))}
+                className="flex h-10 w-10 items-center justify-center rounded-full text-xl text-ink disabled:opacity-40"
+              >
+                -
+              </button>
+              <span
+                className="w-8 text-center font-semibold text-ink"
+                data-testid="product-quantity"
+              >
+                {quantity}
+              </span>
+              <button
+                type="button"
+                aria-label="Increase quantity"
+                disabled={quantity >= 99 || !!disabled || isAdding}
+                onClick={() => setQuantity((q) => Math.min(99, q + 1))}
+                className="flex h-10 w-10 items-center justify-center rounded-full text-xl text-ink disabled:opacity-40"
+              >
+                +
+              </button>
+            </div>
+            <Button
+              type="submit"
+              disabled={
+                !inStock ||
+                !selectedVariant ||
+                !!disabled ||
+                isAdding ||
+                !isValidVariant
+              }
+              variant="primary"
+              className="flex-1 h-12 rounded-full text-sm uppercase tracking-widest"
+              isLoading={isAdding}
+              data-testid="add-product-button"
+            >
+              {!selectedVariant
+                ? "Select variant"
+                : !inStock || !isValidVariant
+                ? "Out of stock"
+                : "Add to cart"}
+            </Button>
+          </div>
         </form>
         <MobileActions
           product={product}

@@ -21,37 +21,40 @@ export default function ProductPrice({
     return <div className="block w-32 h-9 bg-gray-100 animate-pulse" />
   }
 
+  const isSale = selectedPrice.price_type === "sale"
+
   return (
     <div className="flex flex-col text-ui-fg-base">
-      <span
-        className={clx("font-serif text-3xl text-berry", {
-          "text-ui-fg-interactive": selectedPrice.price_type === "sale",
-        })}
-      >
-        {!variant && "From "}
+      <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
         <span
-          data-testid="product-price"
-          data-value={selectedPrice.calculated_price_number}
+          className={clx("text-3xl font-bold tracking-tight text-ink", {
+            "text-ui-fg-interactive": isSale,
+          })}
         >
-          {selectedPrice.calculated_price}
+          {!variant && "From "}
+          <span
+            data-testid="product-price"
+            data-value={selectedPrice.calculated_price_number}
+          >
+            {selectedPrice.calculated_price}
+          </span>
         </span>
-      </span>
-      {selectedPrice.price_type === "sale" && (
-        <>
-          <p>
-            <span className="text-ui-fg-subtle">Original: </span>
-            <span
-              className="line-through"
-              data-testid="original-product-price"
-              data-value={selectedPrice.original_price_number}
-            >
-              {selectedPrice.original_price}
-            </span>
-          </p>
-          <span className="text-ui-fg-interactive">
+        {isSale && (
+          <span className="rounded-md bg-ink px-2 py-1 text-xs font-bold text-ivory">
             -{selectedPrice.percentage_diff}%
           </span>
-        </>
+        )}
+      </div>
+      {isSale && (
+        <p className="mt-1">
+          <span
+            className="line-through text-ui-fg-muted"
+            data-testid="original-product-price"
+            data-value={selectedPrice.original_price_number}
+          >
+            {selectedPrice.original_price}
+          </span>
+        </p>
       )}
     </div>
   )

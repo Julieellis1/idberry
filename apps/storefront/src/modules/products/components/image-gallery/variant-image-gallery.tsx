@@ -42,7 +42,21 @@ const VariantImageGallery = ({
     [product, variantId]
   )
 
-  return <ImageGallery images={images} />
+  const [selectedIndex, setSelectedIndex] = useState(0)
+  const imageKey = images.map((image) => image.id).join(",")
+  useEffect(() => {
+    setSelectedIndex(0)
+  }, [imageKey])
+
+  const selected = Math.min(selectedIndex, Math.max(images.length - 1, 0))
+
+  return (
+    <ImageGallery
+      images={images}
+      selectedIndex={selected}
+      onSelect={setSelectedIndex}
+    />
+  )
 }
 
 export default VariantImageGallery

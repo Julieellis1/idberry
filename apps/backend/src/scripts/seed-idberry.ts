@@ -330,7 +330,7 @@ export default async function seedIdberry({ container }: { container: MedusaCont
           description: `${p.title} from the IDBERRY ${p.collection} collection.`,
           status: ProductStatus.PUBLISHED,
           thumbnail: p.image,
-          images: [{ url: p.image }],
+          images: (p.images ?? [p.image]).map((url) => ({ url })),
           collection_id: collectionId(p.collection),
           category_ids: p.concerns.map(categoryId),
           tag_ids: [tagId(p.type)],

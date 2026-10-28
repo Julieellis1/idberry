@@ -12,6 +12,7 @@ export type IdberryCatalogueItem = {
   concerns: string[]
   type: string
   image: string
+  images?: string[]
   source_url: string
 }
 
@@ -85,7 +86,13 @@ export const IDBERRY_CATALOGUE: IdberryCatalogueItem[] = [
       "Glow & Even Tone"
     ],
     "type": "Scrub",
-    "image": "/images/products/snow-white-plus-radiance-scrub-250g.webp",
+    "image": "/images/products/snow-white-plus-radiance-scrub-250g-main.webp",
+    "images": [
+      "/images/products/snow-white-plus-radiance-scrub-250g-main.webp",
+      "/images/products/snow-white-plus-radiance-scrub-250g-studio.webp",
+      "/images/products/snow-white-plus-radiance-scrub-250g-lifestyle.webp",
+      "/images/products/snow-white-plus-radiance-scrub-250g-ad.webp"
+    ],
     "source_url": "https://idberrybeauty.com/product/exclusive-snow-white-plus-20x-extra-whitening-scrub-250g/"
   },
   {

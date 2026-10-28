@@ -98,6 +98,22 @@ Then redeploy the storefront (step 3) so the new public WebP images in
 run before the storefront redeploy, so the storefront never serves products
 whose database records still point at the old WordPress image URLs.
 
+#### Updating the Snow White Plus Radiance Scrub 250g gallery
+
+The 250g scrub has its own four-image gallery (main, studio, lifestyle,
+ad). After a backend redeploy that includes the updated catalogue and a
+storefront redeploy that includes the four new WebP files, run this exact
+command once from the backend app terminal in Dokploy (it updates only
+that one product in place, never touches prices or variants, is
+idempotent, and fails loudly on any mismatch):
+
+```
+cd apps/backend && npx medusa exec ./src/scripts/update-scrub-250g-gallery.ts
+```
+
+If the Dokploy terminal starts at `/`, run `cd /app` first, then the
+command above.
+
 ### 3. Storefront app (`idberry-storefront`)
 
 - Source: same repo and branch.

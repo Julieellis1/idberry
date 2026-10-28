@@ -31,9 +31,7 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
         data-testid="product-container"
       >
         <div className="small:sticky small:top-48 self-start">
-          <div className="overflow-hidden rounded-3xl border border-blush bg-white shadow-sm">
-            <VariantImageGallery product={product} />
-          </div>
+          <VariantImageGallery product={product} />
         </div>
         <div className="flex flex-col gap-y-8">
           <ProductInfo product={product} />
