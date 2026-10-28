@@ -233,7 +233,6 @@ export default async function Footer() {
           <Text className="txt-compact-small">
             © {new Date().getFullYear()} IDBERRY Beauty. All rights reserved.
           </Text>
-          <Text className="txt-compact-small">Made in Lagos</Text>
         </div>
       </div>
     </footer>

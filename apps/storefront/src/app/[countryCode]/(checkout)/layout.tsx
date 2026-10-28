@@ -35,7 +35,7 @@ export default function CheckoutLayout({
       </div>
       <div className="relative" data-testid="checkout-container">{children}</div>
       <div className="py-4 w-full flex items-center justify-center text-xs text-ui-fg-muted">
-        Secure checkout · IDBERRY Beauty, Lagos
+        Secure checkout · IDBERRY Beauty
       </div>
     </div>
   )

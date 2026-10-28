@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react"
 
-import { BRAND, HERO, HERO_CARDS, TRUST_BAR } from "@lib/idberry"
+import { HERO, HERO_CARDS, TRUST_BAR } from "@lib/idberry"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import Image from "next/image"
 
@@ -74,22 +74,22 @@ const Hero = () => {
           className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/20 to-transparent"
         />
 
-        <div className="relative z-10 mx-auto flex min-h-[100svh] w-full flex-col px-6 pb-8 pt-32 small:px-10 large:px-14">
+        <div className="relative z-10 mx-auto flex min-h-[100svh] w-full flex-col px-6 pb-16 pt-44 small:px-10 small:pt-48 large:px-14">
           <div className="flex flex-1 items-center">
-            <div className="grid w-full grid-cols-1 gap-8 large:grid-cols-12 large:items-start">
-              <div className="large:col-span-7">
+            <div className="w-full max-w-3xl">
+              <div>
                 <span className="uppercase tracking-[0.3em] text-xs text-gold">
-                  IDBERRY Beauty · Lagos
+                  IDBERRY Beauty
                 </span>
-                <h1 className="mt-5 font-serif text-5xl leading-[1.02] small:text-7xl">
+                <h1 className="mt-6 font-serif text-6xl leading-[1.02] small:text-8xl">
                   <span className="italic font-light">Radiance,</span>
                   <br />
-                  made in Lagos.
+                  made for you.
                 </h1>
-                <p className="mt-5 max-w-md text-lg text-ivory/85">
+                <p className="mt-7 max-w-md text-lg leading-relaxed text-ivory/85">
                   {HERO.subtitle}
                 </p>
-                <div className="flex flex-col xsmall:flex-row gap-3 pt-7">
+                <div className="flex flex-col xsmall:flex-row gap-4 pt-10">
                   <LocalizedClientLink
                     href={HERO.primaryCta.href}
                     className="inline-flex items-center justify-center rounded-full bg-ivory px-8 py-3 text-sm uppercase tracking-widest text-ink transition-colors hover:bg-white"
@@ -104,17 +104,14 @@ const Hero = () => {
                   </a>
                 </div>
               </div>
-              <p className="max-w-xs text-sm leading-relaxed text-ivory/80 large:col-span-5 large:ml-auto large:text-right">
-                {BRAND.description}
-              </p>
             </div>
           </div>
 
-          <ul className="mt-12 grid grid-cols-1 gap-4 small:grid-cols-3">
+          <ul className="mt-20 grid grid-cols-1 gap-6 small:grid-cols-3">
             {HERO_CARDS.map((card) => (
               <li
                 key={card.handle}
-                className="rounded-2xl border border-white/15 bg-white/10 p-4 backdrop-blur-md"
+                className="rounded-2xl border border-white/15 bg-white/10 p-5 backdrop-blur-md"
               >
                 <div className="flex gap-4">
                   <Image

@@ -4,7 +4,7 @@
  * Creates the IDBERRY store from scratch on an EMPTY database:
  *   - store "IDBERRY Beauty" (NGN default, USD secondary)
  *   - regions: Nigeria (NGN) and International (USD), Paystack + manual payment
- *   - tax regions, Lagos stock location, shipping zones + placeholder shipping options
+ *   - tax regions, stock location, shipping zones + placeholder shipping options
  *   - sales channel "IDBERRY Web Store" + publishable API key
  *   - 7 collections, 5 concern categories, product-type tags
  *   - all 71 catalogue products (one "Standard" variant each), USD + NGN prices,
@@ -171,17 +171,17 @@ export default async function seedIdberry({ container }: { container: MedusaCont
   })
 
   // ---- Stock location + fulfillment ---------------------------------------
-  logger.info("Seeding Lagos stock location and shipping…")
+  logger.info("Seeding stock location and shipping…")
   const {
     result: [stockLocation],
   } = await createStockLocationsWorkflow(container).run({
     input: {
       locations: [
         {
-          name: "IDBERRY Lagos Studio",
+          name: "IDBERRY Studio",
           address: {
             address_1: "2 Prince Durotoye Street, beside Vitafoam, Iju Road",
-            city: "Agege, Lagos",
+            city: "Agege",
             postal_code: "100216",
             country_code: "NG",
           },
@@ -200,7 +200,7 @@ export default async function seedIdberry({ container }: { container: MedusaCont
   const shippingProfile = shippingProfiles[0]
 
   const fulfillmentSet = await fulfillmentModuleService.createFulfillmentSets({
-    name: "IDBERRY Lagos delivery",
+    name: "IDBERRY delivery",
     type: "shipping",
     service_zones: [
       {
@@ -230,12 +230,12 @@ export default async function seedIdberry({ container }: { container: MedusaCont
   await createShippingOptionsWorkflow(container).run({
     input: [
       {
-        name: "Lagos Delivery",
+        name: "Local Delivery",
         price_type: "flat",
         provider_id: "manual_manual",
         service_zone_id: ngZone.id,
         shipping_profile_id: shippingProfile.id,
-        type: { label: "Lagos", description: "Delivery within Lagos, 1–2 working days.", code: "lagos" },
+        type: { label: "Local", description: "Delivery in the local area, 1–2 working days.", code: "local" },
         prices: [{ currency_code: "ngn", amount: 3500 }, { region_id: nigeria.id, amount: 3500 }],
         rules: storeRules,
       },
@@ -245,7 +245,7 @@ export default async function seedIdberry({ container }: { container: MedusaCont
         provider_id: "manual_manual",
         service_zone_id: ngZone.id,
         shipping_profile_id: shippingProfile.id,
-        type: { label: "Nationwide", description: "Outside Lagos, 2–5 working days.", code: "nationwide" },
+        type: { label: "Nationwide", description: "Outside the local area, 2–5 working days.", code: "nationwide" },
         prices: [{ currency_code: "ngn", amount: 7500 }, { region_id: nigeria.id, amount: 7500 }],
         rules: storeRules,
       },

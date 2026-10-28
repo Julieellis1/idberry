@@ -11,7 +11,7 @@ export async function generateMetadata(props: {
   const { countryCode } = await props.params
   return buildPageMetadata({
     title: "Shop All Skincare",
-    description: "Shop every IDBERRY Beauty ritual: radiance sets, soaps, creams, lotions, serums and targeted care for melanin-rich skin. Made in Lagos, delivered nationwide and internationally.",
+    description: "Shop every IDBERRY Beauty ritual: radiance sets, soaps, creams, lotions, serums and targeted care for melanin-rich skin. Delivered nationwide and internationally.",
     countryCode,
     path: "/store",
   })

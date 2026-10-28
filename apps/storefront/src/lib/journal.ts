@@ -15,7 +15,7 @@ import matter from "gray-matter"
 
 export const JOURNAL_NAME = "The Glow Journal"
 export const JOURNAL_DESCRIPTION =
-  "Skincare rituals, skin concerns and Lagos living for melanin-rich skin, from the IDBERRY Beauty studio in Lagos."
+  "Skincare rituals and skin concerns for melanin-rich skin, from the IDBERRY Beauty studio."
 export const JOURNAL_PAGE_SIZE = 9
 
 const CONTENT_DIR = path.join(process.cwd(), "content", "journal")

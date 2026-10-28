@@ -16,7 +16,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
   if (!cat) notFound()
   return buildPageMetadata({
     title: `${cat.name} | ${JOURNAL_NAME}`,
-    description: `${cat.name} articles from ${JOURNAL_NAME} by IDBERRY Beauty: practical, gentle skincare guidance for melanin-rich skin from Lagos.`,
+    description: `${cat.name} articles from ${JOURNAL_NAME} by IDBERRY Beauty: practical, gentle skincare guidance for melanin-rich skin.`,
     countryCode,
     canonicalCountry: journalCanonicalCountry,
     path: `/journal/category/${cat.slug}`,

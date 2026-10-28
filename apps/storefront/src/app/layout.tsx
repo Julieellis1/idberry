@@ -21,7 +21,7 @@ const sans = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(getBaseURL()),
   title: {
-    default: `${BRAND.name} | Luxury Skincare, Made in Lagos`,
+    default: `${BRAND.name} | Luxury Skincare`,
     template: `%s | ${BRAND.name}`,
   },
   description: BRAND.description,

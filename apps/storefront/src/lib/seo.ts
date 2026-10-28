@@ -92,7 +92,6 @@ const postalAddress = () => ({
   "@type": "PostalAddress",
   streetAddress: BUSINESS.streetAddress,
   addressLocality: BUSINESS.addressLocality,
-  addressRegion: BUSINESS.addressRegion,
   postalCode: BUSINESS.postalCode,
   addressCountry: BUSINESS.addressCountry,
 })

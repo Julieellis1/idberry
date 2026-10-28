@@ -17,7 +17,7 @@ export async function generateMetadata(props: {
   const { countryCode } = await props.params
   return buildPageMetadata({
     title: "Shipping information",
-    description: "Shipping rates and delivery times for IDBERRY Beauty orders in Lagos, across Nigeria and internationally.",
+    description: "Shipping rates and delivery times for IDBERRY Beauty orders across Nigeria and internationally.",
     countryCode,
     path: "/shipping",
   })

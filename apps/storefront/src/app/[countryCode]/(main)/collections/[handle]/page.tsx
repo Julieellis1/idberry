@@ -31,8 +31,8 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
   return buildPageMetadata({
     title: `${collection.title} Collection`,
     description: blurb
-      ? `${collection.title} by IDBERRY Beauty: ${blurb.blurb} Luxury skincare made in Lagos, delivered nationwide and internationally.`
-      : `Shop the ${collection.title} collection from IDBERRY Beauty, luxury skincare made in Lagos.`,
+      ? `${collection.title} by IDBERRY Beauty: ${blurb.blurb} Luxury skincare, delivered nationwide and internationally.`
+      : `Shop the ${collection.title} collection from IDBERRY Beauty, luxury skincare.`,
     countryCode: params.countryCode,
     path: `/collections/${collection.handle}`,
     image: blurb?.image,

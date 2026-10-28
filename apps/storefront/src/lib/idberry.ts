@@ -10,12 +10,12 @@ export const BRAND = {
   name: "IDBERRY Beauty",
   tagline: "We provide all you need for your glowing skin.",
   description:
-    "IDBERRY Beauty is a Lagos luxury skincare brand by Idunnunmi \"IDBERRY\" Esan: radiance rituals for even tone, clear complexions and a glow that feels like you.",
+    "Radiance rituals for even tone, clear complexions and a glow that feels like you.",
   phoneDisplay: "+234 703 328 7766",
   phoneHref: "tel:+2347033287766",
   whatsappNumber: "2347033287766",
   email: "info@idberrybeauty.com",
-  address: "2 Prince Durotoye Street, beside Vitafoam, Iju Road, Agege, Lagos",
+  address: "2 Prince Durotoye Street, beside Vitafoam, Iju Road, Agege 100216",
   hours: "Mon–Fri 9–7, Sat 10–6",
   instagramHandle: "@idberry_beauty_products",
   instagramUrl: "https://www.instagram.com/idberry_beauty_products/",
@@ -27,7 +27,7 @@ export const whatsappLink = (message?: string) =>
   }`
 
 export const HERO = {
-  title: "Radiance, made in Lagos.",
+  title: "Radiance, made for you.",
   subtitle: "Luxury skincare for skin that glows on its own terms.",
   primaryCta: { label: "Shop the Collection", href: "/store" },
   secondaryCta: { label: "Find Your Ritual", href: "#shop-by-concern" },
@@ -114,7 +114,7 @@ export const STORY = {
   title: "IDBERRY began with a voice.",
   body: [
     "Before the films and the formulas, Idunnunmi Esan was a hip-hop singer whose studio crew said she sounded \u201csweet like berry.\u201d She added ID, her nickname, and a name was born.",
-    "Today the actress, filmmaker and cosmetologist pours that same sweetness into skincare: rituals for even tone, clear complexions and a glow that feels like you. From our Lagos studio to doorsteps worldwide, IDBERRY is for the woman who builds her own empire, and wants her skin to look the part.",
+    "Today the actress, filmmaker and cosmetologist pours that same sweetness into skincare: rituals for even tone, clear complexions and a glow that feels like you. From our studio to doorsteps worldwide, IDBERRY is for the woman who builds her own empire, and wants her skin to look the part.",
   ],
   mission:
     "To help every woman feel confident in her skin through effective, results-driven rituals and honest guidance.",
@@ -178,7 +178,6 @@ export const BUSINESS = {
   legalName: "IDBERRY Beauty Product and Services",
   streetAddress: "2 Prince Durotoye Street, beside Vitafoam, Iju Road",
   addressLocality: "Agege",
-  addressRegion: "Lagos",
   postalCode: "100216",
   addressCountry: "NG",
   telephone: "+2347033287766",
@@ -196,7 +195,7 @@ export const FOUNDER = {
   alternateName: "IDBERRY",
   jobTitle: "Founder & CEO, IDBERRY Beauty",
   shortBio:
-    "Idunnunmi \u201cIDBERRY\u201d Esan is the founder and CEO of IDBERRY Beauty, a Lagos luxury skincare brand. She is a Nollywood actress, a filmmaker with Idberry Movie Productions, and a cosmetologist who builds skincare rituals for melanin-rich skin.",
+    "Idunnunmi \u201cIDBERRY\u201d Esan is the founder and CEO of IDBERRY Beauty. She is a Nollywood actress, a filmmaker with Idberry Movie Productions, and a cosmetologist who builds skincare rituals for melanin-rich skin.",
   knowsAbout: ["Skincare", "Cosmetology", "Melanin-rich skin", "Film production"],
   sameAs: ["https://www.instagram.com/idberry_beauty_products/"],
 }

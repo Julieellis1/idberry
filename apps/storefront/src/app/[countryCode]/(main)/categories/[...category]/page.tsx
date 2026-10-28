@@ -29,7 +29,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
       productCategory.description ||
       `Shop IDBERRY Beauty skincare for ${productCategory.name.toLowerCase()}${
         concern ? ` (${concern.note.toLowerCase()})` : ""
-      }: gentle, results-driven rituals for melanin-rich skin, made in Lagos.`
+      }: gentle, results-driven rituals for melanin-rich skin.`
 
     return await buildPageMetadata({
       title: productCategory.name,

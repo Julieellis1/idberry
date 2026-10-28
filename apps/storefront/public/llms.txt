@@ -1,6 +1,6 @@
 # IDBERRY Beauty
 
-> IDBERRY Beauty is a Lagos, Nigeria luxury skincare brand founded by Idunnunmi "IDBERRY" Esan, a Nollywood actress, filmmaker and cosmetologist. It makes skincare rituals for melanin-rich skin focused on radiance, even tone and clear-looking complexions, and delivers nationwide across Nigeria and internationally.
+> IDBERRY Beauty is a luxury skincare brand founded by Idunnunmi "IDBERRY" Esan, a Nollywood actress, filmmaker and cosmetologist. It makes skincare rituals for melanin-rich skin focused on radiance, even tone and clear-looking complexions, and delivers nationwide across Nigeria and internationally.
 
 Key facts:
 - Name origin: from the founder's hip-hop singing days, when studio crews said her voice was "sweet like berry"; "ID" is short for Idunnunmi.
@@ -37,7 +37,7 @@ Key facts:
 - [How to Build a Skincare Ritual for Melanin-Rich Skin](https://idberrybeauty.com/ng/journal/how-to-build-a-skincare-ritual-for-melanin-rich-skin)
 - [Brightening vs Lightening: What's the Difference?](https://idberrybeauty.com/ng/journal/brightening-vs-lightening)
 - [Dark Spots and Hyperpigmentation on Dark Skin](https://idberrybeauty.com/ng/journal/dark-spots-hyperpigmentation-dark-skin)
-- [Lagos Skincare: Humid Rainy Season vs Harmattan](https://idberrybeauty.com/ng/journal/lagos-heat-harmattan-skincare)
+- [Heat and Harmattan: Humid Rainy Season vs Harmattan](https://idberrybeauty.com/ng/journal/lagos-heat-harmattan-skincare)
 - [Sweet Like Berry: The Story Behind IDBERRY](https://idberrybeauty.com/ng/journal/sweet-like-berry-story-behind-idberry)
 - Full text of every article: https://idberrybeauty.com/llms-full.txt
 - RSS feed: https://idberrybeauty.com/journal/rss.xml
@@ -49,7 +49,7 @@ Key facts:
 - [Privacy policy](https://idberrybeauty.com/ng/privacy)
 
 ## Contact
-- Studio: 2 Prince Durotoye Street, beside Vitafoam, Iju Road, Agege, Lagos 100216, Nigeria
+- Studio: 2 Prince Durotoye Street, beside Vitafoam, Iju Road, Agege 100216, Nigeria
 - Phone / WhatsApp: +234 703 328 7766 (https://wa.me/2347033287766)
 - Email: info@idberrybeauty.com
 - Hours: Monday–Friday 09:00–19:00, Saturday 10:00–18:00 (WAT), Sunday closed

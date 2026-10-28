@@ -80,7 +80,7 @@ export default function JournalIndexTemplate({
         </h1>
         <p className="mt-4 text-lg text-ink/70 leading-relaxed">
           {category
-            ? `${category.name} articles from ${JOURNAL_NAME}: practical skincare guidance for melanin-rich skin from our Lagos studio.`
+            ? `${category.name} articles from ${JOURNAL_NAME}: practical skincare guidance for melanin-rich skin from our studio.`
             : JOURNAL_DESCRIPTION}
         </p>
       </header>

@@ -43,7 +43,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
   const productUrl = `${origin}/${params.countryCode}${path}`
   const description =
     product.description ||
-    `${product.title} by ${STORE_NAME}, luxury skincare made in Lagos. Delivered nationwide across Nigeria and internationally.`
+    `${product.title} by ${STORE_NAME}, luxury skincare. Delivered nationwide across Nigeria and internationally.`
   const ogImage = product.thumbnail || DEFAULT_OG_IMAGE
 
   return {

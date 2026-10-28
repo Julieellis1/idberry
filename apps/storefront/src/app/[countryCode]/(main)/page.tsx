@@ -1,14 +1,13 @@
 import { Metadata } from "next"
 
-import FeaturedProducts from "@modules/home/components/featured-products"
 import Hero from "@modules/home/components/hero"
 import CollectionsGrid from "@modules/home/components/idberry/collections-grid"
 import Faq from "@modules/home/components/idberry/faq"
+import { FeaturedProductsSection, ShopProductsSection } from "@modules/home/components/idberry/home-products"
 import OurStory from "@modules/home/components/idberry/our-story"
 import ShopByConcern from "@modules/home/components/idberry/shop-by-concern"
 import WholesaleCta from "@modules/home/components/idberry/wholesale-cta"
 import { BRAND } from "@lib/idberry"
-import { listCollections } from "@lib/data/collections"
 import { getRegion, listRegions } from "@lib/data/regions"
 import { getSiteOrigin, listCountryCodes } from "@lib/util/site"
 import { buildPageMetadata } from "@lib/seo"
@@ -24,14 +23,14 @@ export async function generateMetadata(props: {
   const [origin, regions] = await Promise.all([getSiteOrigin(), listRegions()])
 
   const base = await buildPageMetadata({
-    title: "Luxury Skincare, Made in Lagos",
+    title: "Luxury Skincare",
     description: BRAND.description,
     countryCode,
   })
 
   return {
     ...base,
-    title: { absolute: `${BRAND.name} | Luxury Skincare, Made in Lagos` },
+    title: { absolute: `${BRAND.name} | Luxury Skincare` },
     alternates: {
       canonical: `${origin}/${countryCode}`,
       languages: {
@@ -56,28 +55,15 @@ export default async function Home(props: {
 
   const region = await getRegion(countryCode)
 
-  const { collections } = await listCollections({
-    fields: "id, handle, title",
-  })
-
-
   return (
     <>
       <Hero />
+      <FeaturedProductsSection region={region} />
       <CollectionsGrid />
+      <ShopProductsSection region={region} />
       <ShopByConcern />
-      {collections && collections.length > 0 && region && (
-        <div className="py-12">
-          <ul className="flex flex-col gap-x-6">
-            <FeaturedProducts
-              collections={collections.slice(0, 3)}
-              region={region}
-            />
-          </ul>
-        </div>
-      )}
-      <JournalRail />
       <OurStory />
+      <JournalRail />
       <WholesaleCta />
       <Faq />
     </>
