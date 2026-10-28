@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 
 import { BRAND, HERO, HERO_CARDS, TRUST_BAR } from "@lib/idberry"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
@@ -8,6 +8,7 @@ import Image from "next/image"
 
 const HeroVideo = () => {
   const ref = useRef<HTMLVideoElement>(null)
+  const [playing, setPlaying] = useState(false)
 
   useEffect(() => {
     const video = ref.current
@@ -31,16 +32,19 @@ const HeroVideo = () => {
   return (
     <video
       ref={ref}
-      className="absolute inset-0 h-full w-full object-cover"
+      className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${
+        playing ? "opacity-100" : "opacity-0"
+      }`}
       src={HERO.video}
       poster={HERO.poster}
       autoPlay
       muted
       loop
       playsInline
-      preload="metadata"
+      preload="auto"
       aria-hidden="true"
       tabIndex={-1}
+      onPlaying={() => setPlaying(true)}
     />
   )
 }
@@ -48,20 +52,20 @@ const HeroVideo = () => {
 const Hero = () => {
   return (
     <>
-      <section className="bg-ivory px-3 pt-3 small:px-6 small:pt-6">
-        <div className="relative overflow-hidden rounded-[1.75rem] bg-black text-ivory">
-          <HeroVideo />
-          <div
-            aria-hidden="true"
-            className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/30 to-black/80"
-          />
-          <div
-            aria-hidden="true"
-            className="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-black/30"
-          />
+      <section className="relative w-full min-h-[100svh] overflow-hidden bg-black text-ivory">
+        <HeroVideo />
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-black/80"
+        />
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/20 to-transparent"
+        />
 
-          <div className="relative z-10 px-6 pb-8 pt-14 small:px-10 small:pt-20 large:px-14">
-            <div className="grid grid-cols-1 gap-8 large:grid-cols-12 large:items-start">
+        <div className="relative z-10 mx-auto flex min-h-[100svh] w-full flex-col px-6 pb-8 pt-32 small:px-10 large:px-14">
+          <div className="flex flex-1 items-center">
+            <div className="grid w-full grid-cols-1 gap-8 large:grid-cols-12 large:items-start">
               <div className="large:col-span-7">
                 <span className="uppercase tracking-[0.3em] text-xs text-gold">
                   IDBERRY Beauty · Lagos
@@ -89,45 +93,45 @@ const Hero = () => {
                   </a>
                 </div>
               </div>
-              <p className="max-w-xs text-sm leading-relaxed text-ivory/80 large:col-span-5 large:ml-auto large:pt-12 large:text-right">
+              <p className="max-w-xs text-sm leading-relaxed text-ivory/80 large:col-span-5 large:ml-auto large:text-right">
                 {BRAND.description}
               </p>
             </div>
-
-            <ul className="mt-14 grid grid-cols-1 gap-4 small:grid-cols-3">
-              {HERO_CARDS.map((card) => (
-                <li
-                  key={card.handle}
-                  className="rounded-2xl border border-white/15 bg-white/10 p-4 backdrop-blur-md"
-                >
-                  <div className="flex gap-4">
-                    <Image
-                      src={card.image}
-                      alt={card.title}
-                      width={80}
-                      height={80}
-                      className="h-20 w-20 shrink-0 rounded-xl object-cover"
-                    />
-                    <div className="min-w-0">
-                      <span className="uppercase tracking-[0.2em] text-[11px] text-gold">
-                        {card.collection}
-                      </span>
-                      <h2 className="mt-1 font-serif text-xl leading-snug">
-                        {card.title}
-                      </h2>
-                      <p className="mt-1 text-sm text-ivory/75">{card.blurb}</p>
-                      <LocalizedClientLink
-                        href={`/products/${card.handle}`}
-                        className="mt-2 inline-block text-sm text-ivory underline underline-offset-4 hover:text-gold"
-                      >
-                        See Details
-                      </LocalizedClientLink>
-                    </div>
-                  </div>
-                </li>
-              ))}
-            </ul>
           </div>
+
+          <ul className="mt-12 grid grid-cols-1 gap-4 small:grid-cols-3">
+            {HERO_CARDS.map((card) => (
+              <li
+                key={card.handle}
+                className="rounded-2xl border border-white/15 bg-white/10 p-4 backdrop-blur-md"
+              >
+                <div className="flex gap-4">
+                  <Image
+                    src={card.image}
+                    alt={card.title}
+                    width={80}
+                    height={80}
+                    className="h-20 w-20 shrink-0 rounded-xl object-cover"
+                  />
+                  <div className="min-w-0">
+                    <span className="uppercase tracking-[0.2em] text-[11px] text-gold">
+                      {card.collection}
+                    </span>
+                    <h2 className="mt-1 font-serif text-xl leading-snug">
+                      {card.title}
+                    </h2>
+                    <p className="mt-1 text-sm text-ivory/75">{card.blurb}</p>
+                    <LocalizedClientLink
+                      href={`/products/${card.handle}`}
+                      className="mt-2 inline-block text-sm text-ivory underline underline-offset-4 hover:text-gold"
+                    >
+                      See Details
+                    </LocalizedClientLink>
+                  </div>
+                </div>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
       <TrustBar />

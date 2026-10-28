@@ -8,6 +8,7 @@ import LocalizedClientLink from "@modules/common/components/localized-client-lin
 import CartButton from "@modules/layout/components/cart-button"
 import Search from "@modules/layout/components/search"
 import SideMenu from "@modules/layout/components/side-menu"
+import NavShell from "./nav-shell"
 
 export default async function Nav() {
   const [regions, locales, currentLocale] = await Promise.all([
@@ -17,67 +18,26 @@ export default async function Nav() {
   ])
 
   return (
-    <div className="sticky top-0 inset-x-0 z-50 group">
-      <div className="w-full bg-berry text-ivory text-[11px] small:text-xs tracking-widest uppercase text-center py-2">
-        Nationwide &amp; international delivery · WhatsApp +234 703 328 7766
-      </div>
-      <header className="relative h-16 mx-auto border-b duration-200 bg-ivory border-blush">
-        <nav className="content-container txt-xsmall-plus text-ui-fg-subtle flex items-center justify-between w-full h-full text-small-regular">
-          <div className="flex-1 basis-0 h-full flex items-center">
-            <div className="h-full">
-              <SideMenu regions={regions} locales={locales} currentLocale={currentLocale} />
-            </div>
-          </div>
-
-          <div className="flex items-center h-full">
+    <NavShell
+      sideMenu={
+        <SideMenu regions={regions} locales={locales} currentLocale={currentLocale} />
+      }
+      search={<Search />}
+      cart={
+        <Suspense
+          fallback={
             <LocalizedClientLink
-              href="/"
-              className="font-serif text-2xl small:text-3xl tracking-[0.25em] text-berry hover:text-berry-dark uppercase"
-              data-testid="nav-store-link"
+              className="hover:text-ui-fg-base flex gap-2"
+              href="/cart"
+              data-testid="nav-cart-link"
             >
-              IDBERRY
+              Cart (0)
             </LocalizedClientLink>
-          </div>
-
-          <div className="flex items-center gap-x-6 h-full flex-1 basis-0 justify-end">
-            <Search />
-            <div className="hidden small:flex items-center gap-x-6 h-full">
-              <LocalizedClientLink className="hover:text-berry" href="/store">
-                Shop
-              </LocalizedClientLink>
-              <LocalizedClientLink
-                className="hover:text-berry"
-                href="/collections/snow-white"
-              >
-                Collections
-              </LocalizedClientLink>
-              <LocalizedClientLink className="hover:text-berry" href="/journal">
-                Journal
-              </LocalizedClientLink>
-              <LocalizedClientLink
-                className="hover:text-ui-fg-base"
-                href="/account"
-                data-testid="nav-account-link"
-              >
-                Account
-              </LocalizedClientLink>
-            </div>
-            <Suspense
-              fallback={
-                <LocalizedClientLink
-                  className="hover:text-ui-fg-base flex gap-2"
-                  href="/cart"
-                  data-testid="nav-cart-link"
-                >
-                  Cart (0)
-                </LocalizedClientLink>
-              }
-            >
-              <CartButton />
-            </Suspense>
-          </div>
-        </nav>
-      </header>
-    </div>
+          }
+        >
+          <CartButton />
+        </Suspense>
+      }
+    />
   )
 }
