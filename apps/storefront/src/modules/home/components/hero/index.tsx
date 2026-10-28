@@ -15,15 +15,15 @@ const HeroVideo = () => {
     if (!video) {
       return
     }
-    // Slow motion playback. The clip itself is already gentle, this
-    // halves its speed. Respect reduced motion by holding on the poster.
+    // Very slow playback. The clip itself is already almost still,
+    // this slows it further. Respect reduced motion by holding on the poster.
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       video.pause()
       return
     }
-    video.playbackRate = 0.5
+    video.playbackRate = 0.3
     const setRate = () => {
-      video.playbackRate = 0.5
+      video.playbackRate = 0.3
     }
     video.addEventListener("loadedmetadata", setRate)
     return () => video.removeEventListener("loadedmetadata", setRate)
