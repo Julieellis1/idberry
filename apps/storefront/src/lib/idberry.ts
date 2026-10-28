@@ -31,7 +31,36 @@ export const HERO = {
   subtitle: "Luxury skincare for skin that glows on its own terms.",
   primaryCta: { label: "Shop the Collection", href: "/store" },
   secondaryCta: { label: "Find Your Ritual", href: "#shop-by-concern" },
+  video: "/videos/idberry-hero.mp4",
+  poster: "/videos/idberry-hero-poster.jpg",
 }
+
+/** Real catalogue products shown on the hero cards. Titles, handles and images match the backend seed. Blurbs reuse the collection copy above. */
+export const HERO_CARDS = [
+  {
+    title: "Half Cast Golden Glow Facial Package",
+    handle: "half-cast-golden-glow-facial-package",
+    collection: "Half Cast",
+    blurb: "A golden-toned glow ritual for warm, honeyed radiance.",
+    image:
+      "https://idberrybeauty.com/wp-content/uploads/2024/10/Neutral-Elegant-Skin-Care-Cosmetic-Product-Podium-Facebook-Post_20240916_125923_0000-1.png",
+  },
+  {
+    title: "Snow White Plus Radiance Facial Cream 100g",
+    handle: "snow-white-plus-radiance-facial-cream-100g",
+    collection: "Snow White",
+    blurb: "Our signature radiance ritual for a luminous, even complexion.",
+    image: "https://idberrybeauty.com/wp-content/uploads/2024/02/IMG_5915-Edit.jpg",
+  },
+  {
+    title: "Caramel Glow Luxury Package",
+    handle: "caramel-glow-luxury-package",
+    collection: "Caramel Glow",
+    blurb: "For deep, rich tones that want to stay rich and simply glow.",
+    image:
+      "https://idberrybeauty.com/wp-content/uploads/2021/06/20231122_120512-01.jpeg-1.jpg",
+  },
+]
 
 export const TRUST_BAR = [
   "Nationwide & international delivery",
