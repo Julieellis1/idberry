@@ -72,6 +72,9 @@ export default async function PageLayout(props: {
       )}
       {props.children}
       <Footer />
+      {/* Clearance so page-bottom content can scroll clear of the fixed
+          WhatsApp button instead of sitting underneath it. */}
+      <div aria-hidden="true" className="h-20" />
       <WhatsAppButton />
     </>
   )
