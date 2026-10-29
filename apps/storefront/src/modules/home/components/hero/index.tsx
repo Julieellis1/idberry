@@ -79,12 +79,14 @@ const Hero = () => {
             <div className="w-full max-w-3xl">
               <div>
                 <span className="uppercase tracking-[0.3em] text-xs text-gold">
-                  IDBERRY Beauty
+                  IDBERRY Beauty · Made for melanin-rich skin
                 </span>
                 <h1 className="mt-6 font-serif text-6xl leading-[1.02] small:text-8xl">
-                  <span className="italic font-light">Radiance,</span>
+                  Radiance,
                   <br />
-                  made for you.
+                  <span className="italic font-light text-gold">
+                    made for you.
+                  </span>
                 </h1>
                 <p className="mt-7 max-w-md text-lg leading-relaxed text-ivory/85">
                   {HERO.subtitle}
@@ -147,12 +149,12 @@ const Hero = () => {
 }
 
 export const TrustBar = () => (
-  <div className="w-full border-y border-gold/30 bg-berry text-ivory">
-    <ul className="content-container grid grid-cols-2 small:grid-cols-4 gap-y-3 py-4 text-center text-xs small:text-sm tracking-wide">
+  <div className="w-full border-y border-gold/30 bg-ivory text-ink">
+    <ul className="content-container grid grid-cols-1 small:grid-cols-3 gap-y-4 gap-x-6 py-6 text-center">
       {TRUST_BAR.map((item) => (
-        <li key={item} className="flex items-center justify-center gap-2">
-          <span aria-hidden className="text-gold">✦</span>
-          {item}
+        <li key={item.title} className="flex flex-col items-center gap-1">
+          <span className="font-serif text-lg text-berry">{item.title}</span>
+          <span className="text-sm text-ink/70">{item.subtitle}</span>
         </li>
       ))}
     </ul>

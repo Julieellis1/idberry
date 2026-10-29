@@ -28,9 +28,10 @@ export const whatsappLink = (message?: string) =>
 
 export const HERO = {
   title: "Radiance, made for you.",
-  subtitle: "Luxury skincare for skin that glows on its own terms.",
+  subtitle:
+    "Luxury skincare rituals for skin that glows on its own terms. Even tone, clear complexion, your own shade.",
   primaryCta: { label: "Shop the Collection", href: "/store" },
-  secondaryCta: { label: "Find Your Ritual", href: "#shop-by-concern" },
+  secondaryCta: { label: "Take the 60-sec Skin Quiz", href: "#skin-quiz" },
   video: "/videos/idberry-hero.mp4",
   poster: "/videos/idberry-hero-poster.jpg",
 }
@@ -58,10 +59,18 @@ export const HERO_CARDS = [
 ]
 
 export const TRUST_BAR = [
-  "Nationwide & international delivery",
-  "Secure checkout",
-  "7-day replacement warranty",
-  "WhatsApp skin consultation",
+  {
+    title: "Nationwide & international",
+    subtitle: "Delivery to your door",
+  },
+  {
+    title: "Brightening, never bleaching",
+    subtitle: "Even tone in your own shade",
+  },
+  {
+    title: "Guidance from a cosmetologist",
+    subtitle: "Free WhatsApp consultation",
+  },
 ]
 
 /** Handles match the backend seed (apps/backend/src/scripts/seed-idberry.ts). */
@@ -69,21 +78,25 @@ export const COLLECTIONS = [
   {
     title: "Snow White",
     handle: "snow-white",
+    blurb: "Our signature radiance ritual for a luminous, even finish.",
     image: "/images/products/snow-white-radiance-full-set-plus-lurlu-hitam-scrub.webp",
   },
   {
     title: "Half Cast",
     handle: "half-cast",
+    blurb: "A warm, golden glow for balanced tone.",
     image: "/images/products/half-cast-golden-glow-facial-package.webp",
   },
   {
     title: "Caramel Glow",
     handle: "caramel-glow",
+    blurb: "Keeps rich, deep tones rich, with added luminosity.",
     image: "/images/products/caramel-glow-student-package.webp",
   },
   {
     title: "Royal Customized",
     handle: "royal-customized",
+    blurb: "Bespoke super-luxury sets, built around your skin.",
     image: "/images/products/royal-customized-radiance-super-luxury-set.webp",
   },
   {
@@ -96,7 +109,52 @@ export const COLLECTIONS = [
   {
     title: "Little Ones",
     handle: "little-ones",
+    blurb: "Gentle care for kids' delicate skin.",
     image: "/images/products/flawless-brightening-kids-set.webp",
+  },
+]
+
+/**
+ * Build Your Ritual steps. Handles and images match the backend catalogue
+ * (apps/backend/src/data/idberry-catalogue.ts). Step 4 has no product yet
+ * and is shown as coming soon with no product name.
+ */
+export const RITUAL_STEPS = [
+  {
+    step: "01",
+    name: "Cleanse",
+    title: "Snow White Plus Radiance Face Soap",
+    handle: "snow-white-plus-radiance-face-soap",
+    image: "/images/products/snow-white-plus-radiance-face-soap.webp",
+    copy: "Radiance Face Soap lifts away the day without stripping.",
+    frequency: "Morning & night",
+  },
+  {
+    step: "02",
+    name: "Exfoliate",
+    title: "Snow White Plus Radiance Scrub 250g",
+    handle: "snow-white-plus-radiance-scrub-250g",
+    image: "/images/products/snow-white-plus-radiance-scrub-250g-main.webp",
+    copy: "Radiance Scrub buffs away dullness for a smoother surface.",
+    frequency: "2-3x weekly",
+  },
+  {
+    step: "03",
+    name: "Treat & Moisturise",
+    title: "Snow White Plus Radiance Facial Cream 100g",
+    handle: "snow-white-plus-radiance-facial-cream-100g",
+    image: "/images/products/snow-white-plus-radiance-facial-cream-100g.webp",
+    copy: "Radiance Facial Cream evens tone and seals in softness.",
+    frequency: "Daily",
+  },
+  {
+    step: "04",
+    name: "Protect",
+    title: "",
+    handle: "",
+    image: "",
+    copy: "Daily SPF keeps your results even and your glow lasting.",
+    frequency: "Every morning",
   },
 ]
 

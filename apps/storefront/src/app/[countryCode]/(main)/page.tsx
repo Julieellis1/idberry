@@ -1,11 +1,15 @@
 import { Metadata } from "next"
 
 import Hero from "@modules/home/components/hero"
+import BuildYourRitual from "@modules/home/components/idberry/build-your-ritual"
 import CollectionsGrid from "@modules/home/components/idberry/collections-grid"
 import Faq from "@modules/home/components/idberry/faq"
-import { FeaturedProductsSection, ShopProductsSection } from "@modules/home/components/idberry/home-products"
+import { TheEditSection } from "@modules/home/components/idberry/home-products"
+import NewsletterSignup from "@modules/home/components/idberry/newsletter-signup"
 import OurStory from "@modules/home/components/idberry/our-story"
 import ShopByConcern from "@modules/home/components/idberry/shop-by-concern"
+import SkinQuiz from "@modules/home/components/idberry/skin-quiz"
+import SocialStrip from "@modules/home/components/idberry/social-strip"
 import WholesaleCta from "@modules/home/components/idberry/wholesale-cta"
 import { BRAND } from "@lib/idberry"
 import { getRegion, listRegions } from "@lib/data/regions"
@@ -58,14 +62,17 @@ export default async function Home(props: {
   return (
     <>
       <Hero />
-      <FeaturedProductsSection region={region} />
       <CollectionsGrid />
-      <ShopProductsSection region={region} />
+      <TheEditSection region={region} />
       <ShopByConcern />
+      <SkinQuiz />
+      <BuildYourRitual />
       <OurStory />
+      <SocialStrip />
       <JournalRail />
       <WholesaleCta />
       <Faq />
+      <NewsletterSignup />
     </>
   )
 }

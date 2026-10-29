@@ -4,6 +4,7 @@ import { useEffect, useState } from "react"
 import { useParams, usePathname } from "next/navigation"
 import type { ReactNode } from "react"
 
+import { CONSULTATION, whatsappLink } from "@lib/idberry"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 
 /**
@@ -34,6 +35,19 @@ export default function NavShell({
     pathname === "/" || (countryCode ? pathname === `/${countryCode}` : false)
 
   const [pastHero, setPastHero] = useState(false)
+  const [announcementIndex, setAnnouncementIndex] = useState(0)
+
+  useEffect(() => {
+    if (
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ) {
+      return
+    }
+    const timer = window.setInterval(() => {
+      setAnnouncementIndex((index) => (index + 1) % 2)
+    }, 5000)
+    return () => window.clearInterval(timer)
+  }, [])
 
   useEffect(() => {
     if (!isHome) {
@@ -61,13 +75,25 @@ export default function NavShell({
       }
     >
       <div
+        aria-live="polite"
         className={
           overlay
             ? "w-full bg-black/25 backdrop-blur-sm text-ivory text-[11px] small:text-xs tracking-widest uppercase text-center py-2"
             : "w-full bg-berry text-ivory text-[11px] small:text-xs tracking-widest uppercase text-center py-2"
         }
       >
-        Nationwide &amp; international delivery · WhatsApp +234 703 328 7766
+        {announcementIndex === 0 ? (
+          <span>Nationwide &amp; international delivery</span>
+        ) : (
+          <a
+            href={whatsappLink(CONSULTATION.message)}
+            target="_blank"
+            rel="noreferrer"
+            className="underline underline-offset-4 hover:text-gold"
+          >
+            Free WhatsApp skin consultation
+          </a>
+        )}
       </div>
       <header
         className={
@@ -127,6 +153,41 @@ export default function NavShell({
               >
                 Account
               </LocalizedClientLink>
+            </div>
+            <div
+              className="hidden xsmall:flex items-center rounded-full border p-1 gap-1"
+              aria-label="Choose region and currency"
+            >
+              <a
+                href="/ng"
+                aria-current={countryCode === "ng" ? "page" : undefined}
+                className={`rounded-full px-3 py-1 ${
+                  countryCode === "ng"
+                    ? overlay
+                      ? "bg-ivory text-ink"
+                      : "bg-berry text-ivory"
+                    : overlay
+                      ? "text-ivory hover:text-gold"
+                      : "text-ui-fg-subtle hover:text-berry"
+                }`}
+              >
+                NGN
+              </a>
+              <a
+                href="/us"
+                aria-current={countryCode === "us" ? "page" : undefined}
+                className={`rounded-full px-3 py-1 ${
+                  countryCode === "us"
+                    ? overlay
+                      ? "bg-ivory text-ink"
+                      : "bg-berry text-ivory"
+                    : overlay
+                      ? "text-ivory hover:text-gold"
+                      : "text-ui-fg-subtle hover:text-berry"
+                }`}
+              >
+                USD
+              </a>
             </div>
             {cart}
           </div>
