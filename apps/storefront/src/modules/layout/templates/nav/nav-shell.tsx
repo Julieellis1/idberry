@@ -15,10 +15,12 @@ import LocalizedClientLink from "@modules/common/components/localized-client-lin
  * ivory once the user scrolls past it. Every other page keeps the normal
  * sticky ivory header, so white text never lands on a light page.
  *
- * Navigation is the horizontal menu on the right. There is no slide-in
- * menu: the wordmark sits in the middle, kept centred by an empty flex
- * spacer on the left, with Search, the horizontal links, and Cart on
- * the right.
+ * Navigation is the horizontal menu on the right. On screens below
+ * the small breakpoint the horizontal links are hidden, so a hamburger
+ * button in the left spacer opens a mobile-only dropdown panel. The
+ * wordmark stays in the middle, kept centred by the left spacer and
+ * the right flex container. The panel uses a solid opaque background
+ * so page content never shows through it.
  */
 export default function NavShell({
   search,
@@ -36,6 +38,41 @@ export default function NavShell({
 
   const [pastHero, setPastHero] = useState(false)
   const [announcementIndex, setAnnouncementIndex] = useState(0)
+  const [menuOpen, setMenuOpen] = useState(false)
+
+  const closeMenu = () => setMenuOpen(false)
+
+  // Close the mobile menu whenever the route changes.
+  useEffect(() => {
+    setMenuOpen(false)
+  }, [pathname])
+
+  // Escape closes the mobile menu.
+  useEffect(() => {
+    if (!menuOpen) {
+      return
+    }
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setMenuOpen(false)
+      }
+    }
+    window.addEventListener("keydown", onKeyDown)
+    return () => window.removeEventListener("keydown", onKeyDown)
+  }, [menuOpen])
+
+  // Lock body scroll while the mobile menu is open, restoring the
+  // previous value on close and on unmount.
+  useEffect(() => {
+    if (!menuOpen) {
+      return
+    }
+    const previousOverflow = document.body.style.overflow
+    document.body.style.overflow = "hidden"
+    return () => {
+      document.body.style.overflow = previousOverflow
+    }
+  }, [menuOpen])
 
   useEffect(() => {
     if (
@@ -74,6 +111,13 @@ export default function NavShell({
           : "sticky top-0 inset-x-0 z-50 group"
       }
     >
+      {menuOpen && (
+        <div
+          aria-hidden="true"
+          onClick={closeMenu}
+          className="fixed inset-0 bg-black/50 backdrop-blur-sm small:hidden"
+        />
+      )}
       <div
         aria-live="polite"
         className={
@@ -107,7 +151,36 @@ export default function NavShell({
             overlay ? "text-ivory" : "text-ui-fg-subtle"
           }`}
         >
-          <div className="flex-1 basis-0 h-full" aria-hidden="true" />
+          <div className="flex flex-1 basis-0 h-full items-center">
+            <button
+              type="button"
+              onClick={() => setMenuOpen((open) => !open)}
+              aria-label={menuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={menuOpen}
+              aria-controls="mobile-nav-panel"
+              data-testid="nav-menu-button"
+              className="small:hidden flex flex-col items-center justify-center gap-[5px] h-10 w-10 -ml-2"
+            >
+              <span
+                aria-hidden="true"
+                className={`block h-[2px] w-6 bg-current transition-transform duration-200 ${
+                  menuOpen ? "translate-y-[7px] rotate-45" : ""
+                }`}
+              />
+              <span
+                aria-hidden="true"
+                className={`block h-[2px] w-6 bg-current transition-opacity duration-200 ${
+                  menuOpen ? "opacity-0" : ""
+                }`}
+              />
+              <span
+                aria-hidden="true"
+                className={`block h-[2px] w-6 bg-current transition-transform duration-200 ${
+                  menuOpen ? "-translate-y-[7px] -rotate-45" : ""
+                }`}
+              />
+            </button>
+          </div>
 
           <div className="flex items-center h-full">
             <LocalizedClientLink
@@ -193,6 +266,83 @@ export default function NavShell({
           </div>
         </nav>
       </header>
+      {menuOpen && (
+        <div
+          id="mobile-nav-panel"
+          className="absolute inset-x-0 top-full small:hidden bg-berry text-ivory shadow-lg"
+        >
+          <nav aria-label="Mobile navigation">
+            <ul>
+              <li className="border-b border-white/10">
+                <LocalizedClientLink
+                  href="/store"
+                  onClick={closeMenu}
+                  className="block px-6 py-4 text-base-regular hover:text-gold"
+                >
+                  Shop
+                </LocalizedClientLink>
+              </li>
+              <li className="border-b border-white/10">
+                <LocalizedClientLink
+                  href="/collections/snow-white"
+                  onClick={closeMenu}
+                  className="block px-6 py-4 text-base-regular hover:text-gold"
+                >
+                  Collections
+                </LocalizedClientLink>
+              </li>
+              <li className="border-b border-white/10">
+                <LocalizedClientLink
+                  href="/journal"
+                  onClick={closeMenu}
+                  className="block px-6 py-4 text-base-regular hover:text-gold"
+                >
+                  Journal
+                </LocalizedClientLink>
+              </li>
+              <li className="border-b border-white/10">
+                <LocalizedClientLink
+                  href="/account"
+                  onClick={closeMenu}
+                  data-testid="nav-account-link"
+                  className="block px-6 py-4 text-base-regular hover:text-gold"
+                >
+                  Account
+                </LocalizedClientLink>
+              </li>
+            </ul>
+            <div
+              className="flex gap-3 px-6 py-4"
+              aria-label="Choose region and currency"
+            >
+              <a
+                href="/ng"
+                onClick={closeMenu}
+                aria-current={countryCode === "ng" ? "page" : undefined}
+                className={`flex-1 text-center rounded-full border px-3 py-2 ${
+                  countryCode === "ng"
+                    ? "bg-ivory text-berry border-ivory"
+                    : "border-white/25 hover:text-gold"
+                }`}
+              >
+                NGN
+              </a>
+              <a
+                href="/us"
+                onClick={closeMenu}
+                aria-current={countryCode === "us" ? "page" : undefined}
+                className={`flex-1 text-center rounded-full border px-3 py-2 ${
+                  countryCode === "us"
+                    ? "bg-ivory text-berry border-ivory"
+                    : "border-white/25 hover:text-gold"
+                }`}
+              >
+                USD
+              </a>
+            </div>
+          </nav>
+        </div>
+      )}
     </div>
   )
 }
