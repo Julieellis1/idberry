@@ -14,6 +14,12 @@
 #   NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY=<from the backend seed log / admin>
 #   NEXT_PUBLIC_BASE_URL=https://idberry.teta.dpdns.org
 #   NEXT_PUBLIC_DEFAULT_REGION=ng
+#   S3_FILE_URL=<public base URL of the S3/R2 bucket, e.g.
+#     https://pub-<id>.r2.dev or https://files.example.com>
+# S3_FILE_URL is only read by next.config.js to allow the bucket
+# hostname for Next.js Image, so it must also be a build arg, like the
+# NEXT_PUBLIC_* variables above. It is empty until file storage is set
+# up (see DEPLOY-STAGING.md); the build must still succeed without it.
 #
 # Deploy the backend first, run its first migrate/seed, copy the
 # publishable key, then build this storefront with that key.
@@ -44,10 +50,12 @@ ARG NEXT_PUBLIC_MEDUSA_BACKEND_URL
 ARG NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY
 ARG NEXT_PUBLIC_BASE_URL
 ARG NEXT_PUBLIC_DEFAULT_REGION=ng
+ARG S3_FILE_URL
 ENV NEXT_PUBLIC_MEDUSA_BACKEND_URL=$NEXT_PUBLIC_MEDUSA_BACKEND_URL
 ENV NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY=$NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY
 ENV NEXT_PUBLIC_BASE_URL=$NEXT_PUBLIC_BASE_URL
 ENV NEXT_PUBLIC_DEFAULT_REGION=$NEXT_PUBLIC_DEFAULT_REGION
+ENV S3_FILE_URL=$S3_FILE_URL
 RUN pnpm --filter @dtc/storefront build
 
 FROM base AS runner

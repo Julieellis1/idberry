@@ -9,6 +9,28 @@ const S3_HOSTNAME = process.env.MEDUSA_CLOUD_S3_HOSTNAME
 const S3_PATHNAME = process.env.MEDUSA_CLOUD_S3_PATHNAME
 
 /**
+ * S3-compatible file storage (Cloudflare R2 or AWS S3). The public file
+ * URL is set as a build arg (S3_FILE_URL) so the bucket hostname can be
+ * allowed for Next.js Image. Images are currently served unoptimized
+ * (see below), so this pattern only takes effect if that ever changes;
+ * it is kept so the config stays correct either way.
+ */
+const S3_FILE_URL = process.env.S3_FILE_URL
+let S3_FILE_HOSTNAME = null
+let S3_FILE_PATHNAME = null
+if (S3_FILE_URL) {
+  try {
+    const parsed = new URL(S3_FILE_URL)
+    S3_FILE_HOSTNAME = parsed.hostname
+    const basePath = parsed.pathname.replace(/\/+$/, "")
+    S3_FILE_PATHNAME = basePath ? `${basePath}/**` : "/**"
+  } catch {
+    // Invalid S3_FILE_URL: leave the pattern out rather than failing
+    // the build; the bucket URL must be fixed in the Dokploy build args.
+  }
+}
+
+/**
  * 301 map from the legacy WordPress/WooCommerce site (idberrybeauty.com) to
  * the new Medusa handles. Regenerate with `node scripts/generate-legacy-redirects.mjs`.
  */
@@ -113,6 +135,15 @@ const nextConfig = {
               protocol: "https",
               hostname: S3_HOSTNAME,
               pathname: S3_PATHNAME,
+            },
+          ]
+        : []),
+      ...(S3_FILE_HOSTNAME && S3_FILE_PATHNAME
+        ? [
+            {
+              protocol: "https",
+              hostname: S3_FILE_HOSTNAME,
+              pathname: S3_FILE_PATHNAME,
             },
           ]
         : []),

@@ -114,6 +114,75 @@ cd apps/backend && npx medusa exec ./src/scripts/update-scrub-250g-gallery.ts
 If the Dokploy terminal starts at `/`, run `cd /app` first, then the
 command above.
 
+#### File storage for Admin uploads (Cloudflare R2)
+
+Without file storage, Admin uploads land in the backend container with
+`http://localhost:9000/static/` URLs that no visitor browser can load
+and that vanish on redeploy, and Admin previews of the relative
+`/images/products/*.webp` paths are broken because those files are
+served by the storefront, not the backend. File storage on Cloudflare
+R2 fixes both: every upload gets one absolute public URL that works in
+Admin, on the storefront, and in search results.
+
+Setup checklist, in order:
+
+1. Create an R2 bucket with public read access: either the bucket's
+   public `*.r2.dev` URL or a custom domain connected to the bucket.
+   That public base URL, with no trailing slash, is `S3_FILE_URL`.
+   Note the account ID; the S3-compatible endpoint is
+   `https://<account-id>.r2.cloudflarestorage.com`.
+2. Create an R2 API token with Object Read and Write permission for
+   the bucket. Do not put the token in the repo.
+3. Set these runtime env vars on the BACKEND app in Dokploy (never in
+   the repo). `S3_REGION` is always `auto` for R2, and `S3_ENDPOINT`
+   is required:
+
+   ```
+   S3_FILE_URL=<public base URL of the bucket, no trailing slash>
+   S3_ACCESS_KEY_ID=<R2 API token access key id>
+   S3_SECRET_ACCESS_KEY=<R2 API token secret access key>
+   S3_REGION=auto
+   S3_BUCKET=<bucket name>
+   S3_ENDPOINT=https://<account-id>.r2.cloudflarestorage.com
+   ```
+
+   The file module in `apps/backend/medusa-config.ts` is only
+   registered when `S3_FILE_URL`, `S3_ACCESS_KEY_ID`,
+   `S3_SECRET_ACCESS_KEY`, `S3_REGION`, `S3_BUCKET`, and
+   `S3_ENDPOINT` are all set,
+   so the backend still starts without them (on the default local
+   file provider). The provider is the only file provider when
+   registered, which Medusa requires.
+4. Set `S3_FILE_URL` as a build arg on the STOREFRONT app in Dokploy
+   too, so `next.config.js` can allow the bucket hostname for
+   Next.js Image. The storefront Dockerfile already declares the
+   `S3_FILE_URL` build arg.
+5. Redeploy the backend, then run this exact command once from the
+   backend app terminal in Dokploy. It uploads the local WebP files
+   to the bucket and repoints existing products at the returned
+   absolute URLs, preserving image order. It never creates products
+   and never touches prices or variants. It is idempotent and fails
+   loudly if the env vars are missing, a referenced file is missing,
+   or an upload does not return a URL under `S3_FILE_URL`:
+
+   ```
+   cd apps/backend && npx medusa exec ./src/scripts/migrate-images-to-file-storage.ts
+   ```
+
+   If the Dokploy terminal starts at `/`, run `cd /app` first, then
+   the command above.
+6. Redeploy the storefront, then verify: an Admin upload shows a
+   public URL (not localhost), Admin previews of product images
+   load, the storefront gallery loads, and no product image URL
+   contains `localhost` or starts with `/images/`.
+
+After migration, do NOT upload images in Admin and then expect the
+catalogue to know about them: new Admin uploads live in the database
+only. The catalogue and seed in this repo still write relative paths,
+so a fresh seed after migration would reintroduce relative URLs. After
+any fresh seed, re-run the migrate script above, or update the
+catalogue image paths with the bucket prefix at that point.
+
 ### 3. Storefront app (`idberry-storefront`)
 
 - Source: same repo and branch.
