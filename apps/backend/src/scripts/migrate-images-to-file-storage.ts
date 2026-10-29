@@ -175,7 +175,12 @@ export default async function migrateImagesToFileStorage({
   const neededList = [...needed]
   for (let i = 0; i < neededList.length; i += UPLOAD_BATCH) {
     const batch = neededList.slice(i, i + UPLOAD_BATCH)
-    const files = []
+    const files: {
+      filename: string
+      mimeType: string
+      content: string
+      access: "public" | "private"
+    }[] = []
     for (const name of batch) {
       const buffer = await fs.readFile(path.join(imagesDir, name))
       files.push({
