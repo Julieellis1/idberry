@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react"
 import { useParams, usePathname } from "next/navigation"
+import Image from "next/image"
 import type { ReactNode } from "react"
 
 import { CONSULTATION, whatsappLink } from "@lib/idberry"
@@ -185,13 +186,20 @@ export default function NavShell({
           <div className="flex items-center h-full">
             <LocalizedClientLink
               href="/"
-              className={`font-serif text-2xl small:text-3xl tracking-[0.25em] uppercase ${
+              className={`font-serif text-2xl small:text-3xl tracking-[0.25em] uppercase flex items-center gap-3 ${
                 overlay
                   ? "text-ivory hover:text-gold"
                   : "text-berry hover:text-berry-dark"
               }`}
               data-testid="nav-store-link"
             >
+              <Image
+                src="/images/idberry-logo.png"
+                alt="IDBERRY Beauty logo"
+                width={40}
+                height={40}
+                className="h-10 w-10 small:h-11 small:w-11 rounded-full shrink-0"
+              />
               IDBERRY
             </LocalizedClientLink>
           </div>

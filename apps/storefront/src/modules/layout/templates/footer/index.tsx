@@ -4,6 +4,7 @@ import { Text, clx } from "@modules/common/components/ui";
 
 import LocalizedClientLink from "@modules/common/components/localized-client-link";
 import { BRAND, whatsappLink } from "@lib/idberry";
+import Image from "next/image";
 
 export default async function Footer() {
   const [{ collections }, productCategories] = await Promise.all([
@@ -21,8 +22,15 @@ export default async function Footer() {
           <div className="max-w-sm flex flex-col gap-4">
             <LocalizedClientLink
               href="/"
-              className="font-serif text-3xl tracking-[0.25em] text-ivory uppercase"
+              className="font-serif text-3xl tracking-[0.25em] text-ivory uppercase flex items-center gap-3"
             >
+              <Image
+                src="/images/idberry-logo.png"
+                alt="IDBERRY Beauty logo"
+                width={48}
+                height={48}
+                className="h-12 w-12 rounded-full shrink-0"
+              />
               IDBERRY
             </LocalizedClientLink>
             <p className="font-serif italic text-lg text-ivory/80">

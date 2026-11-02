@@ -26,6 +26,13 @@ export const metadata: Metadata = {
   },
   description: BRAND.description,
   applicationName: BRAND.name,
+  icons: {
+    icon: [
+      { url: "/images/idberry-logo.png", type: "image/png" },
+      { url: "/favicon.ico", type: "image/x-icon" },
+    ],
+    apple: [{ url: "/images/idberry-logo.png", type: "image/png" }],
+  },
   openGraph: {
     siteName: BRAND.name,
     type: "website",
